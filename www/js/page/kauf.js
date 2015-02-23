@@ -152,7 +152,7 @@ $( "#ksubmit" ).click(function() {
         ],
       'autotext': 'true',
       'subject': 'Receipt',
-      'html': 'Hi, The receipt for the transaction' + returnedData.message.replace("/index.php","")
+      'html': 'Hi, The receipt for the transaction ' + returnedData.message.replace("/index.php","")
     }
   }
  }).done(function(response) {
