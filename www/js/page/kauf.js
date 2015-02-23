@@ -158,7 +158,7 @@ $( "#ksubmit" ).click(function() {
  }).done(function(response) {
    alert(JSON.stringify(response)); 
  });
-                        window.location = "https://docs.google.com/viewer?url="+returnedData.message.replace("/index.php","");
+                        //window.location = "https://docs.google.com/viewer?url="+returnedData.message.replace("/index.php","");
                         $(':input').val('');
 
                         
