@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phone shop - Buy</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-toggle.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+</head>
+<body id="top">
+  <div class="home-wrapper">
+   <div class="home-content">
+    <div role="tabpanel">
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#buy" aria-controls="buy" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
+        <li role="presentation"><a href="#sell" aria-controls="sell" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span></a></li>
+        <li role="presentation"><a href="#offer" aria-controls="offer" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span></a></li>
+        <li role="presentation"><a href="#report" aria-controls="report" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span></a></li>
+      </ul>
+
+      <aside id="menu" class="left">
+        <ul id="buy-aside">
+          <li><a href="#top">Customer Details</a></li>
+          <li><a href="#phone">Phone Details</a></li>
+          <li><a href="#signature">Signature</a></li>
+          <li><a href="#" class="logout">Logout</a></li>
+        </ul>
+        <ul id="sell-aside" style="display:none;">
+          <li><a href="#top">Customer Details</a></li>
+          <li><a href="#phone-sell">Select Phone</a></li>
+          <li><a href="#others">Other Details</a></li>
+          <li><a href="#" class="logout">Logout</a></li>
+        </ul>
+        <a href="#" id="showmenu"> <i class="fa fa-align-justify"></i> </a>
+      </aside>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="buy">
+         <div class="buy-content">
+          <h4 id="customer">Customer Details</h4>
+          <div class="form-group required">
+           <div class="form-row">
+            <label class="control-label">Name:</label>
+            <input type="text" class="app-form-control" placeholder="Customer Name" id="customer_name">
+          </div>
+          <div class="form-row">
+            <label>Post code:</label>
+            <input type="text" class="app-form-control" placeholder="Post Code" id="postcode">
+          </div>
+          <div class="form-row">
+            <label>Street:</label>
+            <input type="text" class="app-form-control" placeholder="Street" id="street">
+          </div>
+
+          <div class="form-row">
+            <label>City:</label>
+            <input type="text" class="app-form-control" placeholder="City" id="city">
+          </div>
+          <div class="form-row">
+            <label>Country:</label>
+            <input type="text" class="app-form-control" placeholder="Country" id="country">
+          </div>
+          <div class="form-row">
+            <label>Email:</label>
+            <input type="text" class="app-form-control" placeholder="Email" id="email" value="dev@gmail.com">
+          </div>
+          <div class="form-row">
+            <label>Phone:</label>
+            <input type="text" class="app-form-control" placeholder="Phone" id="phone_number">
+          </div>
+          <div class="form-row">
+            <label>Bill No:</label>
+            <input type="text" class="app-form-control" placeholder="Bill No" id="bill_number">
+          </div>
+          <div class="form-row">
+            <label>MwSt:(0% or 19%)</label>
+            <input type="checkbox" checked data-toggle="toggle" id="tax" placeholder="mwsp">
+          </div>
+          <div class="form-row id-images">
+            <label class="control-label">ID:</label>
+            <img src="images/camera.jpg" id="kpicture1">
+            <img src="images/camera.jpg" id="kpicture2">
+          </div>
+        </div>
+        <h4 id="phone">Phone Details</h4>
+        <div class="form-group required">         
+         <div class="form-group" id="phone_detail">         
+          <div class="form-row">
+           <label class="control-label">Name:</label>
+           <input type="text" class="app-form-control" placeholder="Phone Name" id="article_name">
+         </div>
+         <div class="form-row">
+           <label class="control-label">Manufacturer:</label>
+           <input type="text" class="app-form-control" placeholder="Manufacturer" id="manufacturer">
+         </div>
+         <div class="form-row">
+           <label class="control-label">Model:</label>
+           <input type="text" class="app-form-control" placeholder="Model" id="model">
+         </div>
+         <div class="form-row has-feedback has-feedback-left">
+          <label class="control-label">IMEI:</label>
+          <input type="text" class="app-form-control" placeholder="IMEI" id="imei">
+          <i class="glyphicon glyphicon-barcode" id="barcode"></i>
+          <audio id="successSound" src="sound/ta_da.mp3" type="audio/mpeg" ></audio>
+        </div>    
+        <div class="form-row">
+         <label class="control-label">Price:</label>
+         <input type="text" class="app-form-control" placeholder="Price" id="price">
+       </div>
+     </div>
+   </div>
+   <div class="clear" id="signature">
+     <a href="#" class="clear-btn" id="clear"><span class="glyphicon glyphicon-remove"></span></a>
+   </div>
+   <div class="signature"></div>
+   <div class="button-area">
+     <input type="submit" value="SUBMIT" id="ksubmit">
+   </div>
+ </div>
+</div>
+<div role="tabpanel" class="tab-pane" id="sell">
+  <div class="sell-content">
+   <h4 id="customer-sell">Customer Details</h4>
+   <div id="customer_detail">
+     <div class="form-group">
+      <div class="form-row">
+       <label>Name:</label>
+       <input type="text" class="app-form-control buyer_name" placeholder="Customer Name" id="customer_name" value="test">
+     </div>
+     <div class="form-row">
+       <label>Post code:</label>
+       <input type="text" class="app-form-control" placeholder="Post Code" id="postcode">
+     </div>
+     <div class="form-row">
+       <label>Street:</label>
+       <input type="text" class="app-form-control" placeholder="Street" id="street">
+     </div>
+
+     <div class="form-row">
+       <label>City:</label>
+       <input type="text" class="app-form-control" placeholder="City" id="city">
+     </div>
+     <div class="form-row">
+       <label>Country:</label>
+       <input type="text" class="app-form-control" placeholder="Country" id="country">
+     </div>
+     <div class="form-row">
+       <label>Email:</label>
+       <input type="text" class="app-form-control" placeholder="Email" id="email" value="dev@gmail.com">
+     </div>
+     <div class="form-row">
+       <label>Phone:</label>
+       <input type="text" class="app-form-control" placeholder="Phone" id="phone_number">
+     </div>
+     <div class="form-row">
+       <label>Bill No:</label>
+       <input type="text" class="app-form-control" placeholder="Bill No" id="bill_number">
+     </div>
+     <div class="form-row id-images">
+       <label>ID:</label>
+       <img src="images/camera.jpg" id="rpicture1">
+       <img src="images/camera.jpg" id="rpicture2">
+     </div>
+   </div>
+ </div>
+ <h4 id="phone-sell">Select Phone(s):</h4>
+ <div class="form-group">
+ <div class="form-row">
+       
+       <select id="manufacturer_select">
+         <option value="0">Manufacturer</option>
+       </select>
+     </div>
+  <p>
+    <div class="table-responsive report-table">
+     <table id="phones" class="display" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Price</th>          
+          <th>IMEI</th>
+          <th>Add</th>
+        </tr>
+      </thead>
+      <tbody id="select_phones">
+
+
+      </tbody>
+    </table>
+  </div>
+</p>
+</div>
+
+<h4>Selected Phone(s):</h4>
+<div class="no-form-group">
+ <div class="table-responsive report-table">
+  <table id="phones" cellspacing="0" cellpadding="10" class="table-striped" width="100%">
+    <thead>
+      <tr>
+        <th>Manufacturer</th>
+        <th>Model</th>
+        <th>IMEI</th>
+        <th>Price</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody id="selected_phones">
+
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+
+<h4 id="others">Other Details</h4>
+<div id="other_detail_container">
+<div class="other_detail" id="first_other">
+ <div class="form-group">         
+  <div class="form-row">
+   <label>Name:</label>
+   <input type="text" class="app-form-control other_name" placeholder="Name">
+ </div>
+ <div class="form-row">
+   <label>Price:</label>
+   <input type="text" class="app-form-control other_price" placeholder="Price">
+ </div>
+ <div class="form-row">
+   <label>Quantity:</label>
+   <input type="text" class="app-form-control other_quantity" placeholder="Quantity" >
+ </div>
+ <div class="form-row">
+    <label>MwSt:(0% or 19%)</label>
+    <input type="checkbox" checked data-toggle="toggle" class="other_tax" placeholder="mwsp">
+  </div>
+ <div class="form-row">
+      <label>Tax:</label>
+      <input type="text" class="app-form-control" placeholder="Tax" class="tax_value">
+</div>
+          
+</div>
+</div>
+</div>
+<div class="add">
+ <a href="#" class="add-btn"><span class="glyphicon glyphicon-plus" id="add_other"></span></a>
+</div>
+<!-- <div class="signature"></div> -->
+<div id="rreport">
+    
+</div>
+<div class="button-area">
+ <input type="submit" value="SUBMIT" id="rsubmit">
+ <input type="submit" value="PRINT" id="rprint">
+</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane" id="offer">
+ <div class="offer-content" id="offer_tab">
+
+ </div>
+</div>
+<div role="tabpanel" class="tab-pane" id="report">
+ <div class="report-content">
+  <div class="report-filter">
+   <h4>Filter Report</h4>
+   <div class="form-group">
+
+     <div class="form-row has-feedback has-feedback-left">
+       <label>From:</label>
+       <input type="date" class="app-form-control" Placeholder="From" id="from">
+       <i class="glyphicon glyphicon-calendar"></i>
+
+     </div>
+     <div class="form-row has-feedback has-feedback-left" >
+       <label>To:</label>
+       <input type="date" class="app-form-control" Placeholder="To" id="to">
+       <i class="glyphicon glyphicon-calendar"></i>
+     </div>
+     <div class="form-row">
+       <label>Status:</label>
+       <select class="app-select" id="status">
+        <option id="default">Default</option>
+        <option id="sell">Sell</option>
+        <option id="buy">Buy</option>
+      </select>
+    </div>
+  </div>
+  <div class="button-area">
+    <a href="#" id="view">View</a>
+    <a href="#" id="print">Print</a>
+  </div>
+  <div class="report-table">
+    <table width="100%" cellspacing="0" cellpadding="10" border="0" align="center">
+     <thead>
+      <tr>
+       <th>Item</th>
+       <th>Net</th>
+       <th>Tax</th>
+       <th>Gross</th>
+     </tr>
+   </thead>
+   <tbody id="tbody">
+   </tbody>
+ </table>
+</div>
+</div>
+
+</div>
+</div>
+
+</body>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/bootstrap-toggle.js"></script>
+<!--[if lt IE 9]>
+  <script type="text/javascript" src="libs/flashcanvas.js"></script>
+  <![endif]-->
+  <script type="text/javascript" src="js/template.js"></script>
+  <script src="js/jSignature.min.js"></script>
+  <script src="js/page/kauf.js"></script>
+  <script src="js/page/rauc.js"></script>
+  <script src="js/page/offer.js"></script>
+  <script src="js/page/report.js"></script>
+  <script src="js/jquery.printPage.js"></script>
+  <script type="text/javascript">
+   $('#myTab a').click(function (e) {
+     e.preventDefault();
+     $(this).tab('show');
+   });
+   
+   $( document).ready(function() {
+    $('.nav-tabs li').click(function(){
+      var thisli = $(this);
+      $('#showmenu').hide();
+      $('#menu').removeClass('show'); 
+      if(thisli.children('a').attr('aria-controls') == 'buy' || thisli.children('a').attr('aria-controls') == 'sell'){
+        $('#buy-aside').hide(); 
+        $('#sell-aside').show();
+          // $('#menu').addClass('show');   
+          if(thisli.children('a').attr('aria-controls') == 'buy'){
+            $('#buy-aside').show();
+            $('#sell-aside').hide();  
+          }console.log('asfd');
+          $('#showmenu').show();
+        }
+      });
+    
+  });
+</script>
+<script>
+  $(".logout").click(function(){
+    localStorage.clear();
+    window.location="login.html";
+    
+  })
+
+</script>
+<script type="text/javascript">
+  $("#showmenu").click(function(e){
+    e.preventDefault();
+    $("#menu").toggleClass("show");
+  });
+
+  $('#menu a').not('#showmenu').click(function(){
+    $("#menu").toggleClass("show");
+    $('html, body').animate({
+      scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 500);
+    return false;
+  });
+
+</script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+</html>

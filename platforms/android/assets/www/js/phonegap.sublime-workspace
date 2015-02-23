@@ -1,0 +1,796 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fu",
+				"fun	Function"
+			],
+			[
+				"co",
+				"command"
+			],
+			[
+				"redis",
+				"redis-server"
+			],
+			[
+				"event",
+				"event_id"
+			],
+			[
+				"invi",
+				"invitations"
+			],
+			[
+				"me",
+				"method"
+			],
+			[
+				"list",
+				"list_items_interaction_details"
+			],
+			[
+				"media",
+				"media_list"
+			],
+			[
+				"form",
+				"form-control"
+			],
+			[
+				"up",
+				"updateData"
+			],
+			[
+				"Stor",
+				"StoryModel"
+			],
+			[
+				"cons",
+				"console"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"a",
+				"amzn"
+			],
+			[
+				"i",
+				"img/"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"fl",
+				"float"
+			],
+			[
+				"Movie",
+				"MovieTitleClean"
+			],
+			[
+				"tr",
+				"trailer"
+			],
+			[
+				"val",
+				"value	AngularJS"
+			],
+			[
+				"ma",
+				"magnetic_link"
+			],
+			[
+				"to",
+				"torrent_link"
+			],
+			[
+				"margi",
+				"margin-bottom"
+			],
+			[
+				"l",
+				"length"
+			],
+			[
+				"f",
+				"fancy.js"
+			],
+			[
+				"lea",
+				"league_name"
+			],
+			[
+				"pin",
+				"pinColor"
+			],
+			[
+				"mysql",
+				"mysql_error"
+			],
+			[
+				"mongo",
+				"mongoUri"
+			],
+			[
+				"$route",
+				"$routeParams	AngularJS(DI)"
+			],
+			[
+				"$ro",
+				"$routeParams	AngularJS"
+			],
+			[
+				"ng",
+				"ng-view	AngularJS"
+			],
+			[
+				"fun",
+				"fun	Function"
+			],
+			[
+				"$http",
+				"verbose_$http	AngularJS"
+			],
+			[
+				"ng-re",
+				"ng-repeat	AngularJS"
+			],
+			[
+				"sc",
+				"scope"
+			],
+			[
+				"con",
+				"content"
+			],
+			[
+				"info",
+				"infowindow"
+			],
+			[
+				"sta",
+				"start"
+			],
+			[
+				"log",
+				"logstash"
+			],
+			[
+				"redi",
+				"redis-server"
+			],
+			[
+				"m",
+				"mfgdate"
+			],
+			[
+				"depa",
+				"department"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"do",
+				"document"
+			],
+			[
+				"on",
+				"onclick	Attr"
+			],
+			[
+				"mysql_nu",
+				"mysql_num_rows"
+			],
+			[
+				"ro",
+				"rows_affected"
+			],
+			[
+				"ac",
+				"action	Attr"
+			],
+			[
+				"h",
+				"h24Rate"
+			],
+			[
+				"pa",
+				"pawdRate"
+			],
+			[
+				"text",
+				"textContent"
+			],
+			[
+				"www",
+				"wwwCost"
+			],
+			[
+				"p",
+				"pawdCost"
+			],
+			[
+				"ww",
+				"wwwCost"
+			],
+			[
+				"re",
+				"realh24Quantity"
+			],
+			[
+				"real",
+				"realpawdQuantity"
+			],
+			[
+				"r",
+				"realpawdQuantity"
+			],
+			[
+				"in",
+				"input"
+			],
+			[
+				"se",
+				"selectbox"
+			],
+			[
+				"selec",
+				"selected_zone"
+			],
+			[
+				"zo",
+				"zones"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"zone",
+				"zoneNames"
+			],
+			[
+				"cre",
+				"createOption"
+			],
+			[
+				"de",
+				"development_regions"
+			],
+			[
+				"key",
+				"keyFromValue"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"font-",
+				"font-variant"
+			],
+			[
+				"fo",
+				"font-style"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"url",
+				"urlopen	function"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/User/phonegap.sublime-build",
+	"command_palette":
+	{
+		"height": 32.0,
+		"selected_items":
+		[
+			[
+				"package",
+				"Preferences: Package Control Settings – User"
+			],
+			[
+				"enab",
+				"Package Control: Enable Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"git di",
+				"Git: Diff All"
+			],
+			[
+				"git lo",
+				"Git: Log All"
+			],
+			[
+				"gitco",
+				"Git: Commit"
+			],
+			[
+				"gitad",
+				"Git: Add..."
+			],
+			[
+				"gitadd",
+				"Git: Add Current File"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 508.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/www/index.html",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/hello/www/index.html",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/hello/emulate.sh",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/hello/www/js/index.js",
+		"/home/adhikari/.config/sublime-text-3/Packages/User/phonegap.sublime-build",
+		"/home/adhikari/.cache/.fr-8TlTCw/SignInForm.aspx",
+		"/home/adhikari/.cache/.fr-PNWX9r/SignInForm.aspx",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/copy of www/index.html",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/copy of www/js/index.js",
+		"/home/adhikari/domaincontrol.rdp",
+		"/home/adhikari/bikram.rdp",
+		"/var/www/phoneshop/index.html",
+		"/home/adhikari/.cache/.fr-WkmN9a/Deploy.ps1",
+		"/home/adhikari/layoutit/src/index.html",
+		"/home/adhikari/projects/tweets/news_tweets.js",
+		"/home/adhikari/projects/tweets/news_tweets_ircbot.js",
+		"/home/adhikari/tmp/when_to_marry.txt",
+		"/home/adhikari/Dropbox/Public/myscripts/himym.py",
+		"/home/adhikari/london.sql",
+		"/var/www/rosariosis/config.inc.sample.php",
+		"/home/adhikari/AndroidStudioProjects/ItEbooks/app/src/main/res/layout/activity_list_term.xml",
+		"/home/adhikari/AndroidStudioProjects/ItEbooks/app/src/main/res/layout/listitem.xml",
+		"/home/adhikari/AndroidStudioProjects/What'sHappening/app/src/main/java/com/bigfootsoftwares/whatshappening/DashBoard.java",
+		"/home/adhikari/AndroidStudioProjects/ItEbooks/app/src/main/java/com/bigfootsoftwares/ebooks/Detail.java",
+		"/home/adhikari/Nepalese Restaurants list - Sheet1.csv",
+		"/home/adhikari/backup/ms2my/StoredProcedures/ApplyCommunityRules.sql",
+		"/var/www/rosariosis/rosariosis.sql",
+		"/home/adhikari/tmp/rich_people.txt",
+		"/home/adhikari/tmp/rich_people_names.txt",
+		"/home/adhikari/projects/android test.txt",
+		"/home/adhikari/android_sdk/tools/sample.py",
+		"/home/adhikari/android_sdk/tools/recorder.py",
+		"/home/adhikari/android_sdk/tools/playback.py",
+		"/home/adhikari/projects/serkan/show.js",
+		"/home/adhikari/tmp/repos.txt",
+		"/home/adhikari/projects/ircbot/main.js",
+		"/home/adhikari/tmp/when_to_marry.csv",
+		"/var/www/whentomarry.html",
+		"/home/adhikari/Dropbox/Public/projects/Android/SpacedLearning/app/src/main/java/com/bigfootsoftwares/notes/MainActivity.java",
+		"/home/adhikari/AndroidStudioProjects/ItEbooks/app/src/main/java/com/bigfootsoftwares/ebooks/Result.java",
+		"/home/adhikari/AndroidStudioProjects/ItEbooks/app/src/main/java/com/bigfootsoftwares/ebooks/ListAdapter.java",
+		"/home/adhikari/AndroidStudioProjects/epos-android/app/build.gradle",
+		"/home/adhikari/Dropbox/Public/article.txt",
+		"/home/adhikari/AndroidStudioProjects/epos-android/app/src/main/java/com/genesesofts/epos/SplashActivity.java",
+		"/home/adhikari/AndroidStudioProjects/epos-android/app/src/main/java/com/genesesofts/epos/HomeActivity.java",
+		"/home/adhikari/AndroidStudioProjects/What'sHappening/app/src/main/java/com/bigfootsoftwares/whatshappening/AddEvent.java",
+		"/home/adhikari/AndroidStudioProjects/What'sHappening/app/src/main/java/com/bigfootsoftwares/whatshappening/login.java",
+		"/home/adhikari/tmp/ca_email.txt",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/jenkins/ec2_instance_ctl_comp",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/jenkins/push_version_out",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/jenkins/populate_versions",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/jenkins/approved_release",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/NAT/s3_chef_release",
+		"/home/adhikari/tmp/NavigationDrawer/src/com/example/android/navigationdrawerexample/MainActivity.java",
+		"/home/adhikari/AndroidStudioProjects/epos-android/app/src/main/res/layout/activity_login.xml",
+		"/home/adhikari/downloads/Game Of Thrones Season 1 Complete HDTV x264 [VectoR]/Game of Thrones S01E10 - HDTVRip 480p x264 [VectoR].srt",
+		"/home/adhikari/projects/bash/sam.sh",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/jenkins/crontab_iat",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/jenkins/auto_rollout",
+		"/home/adhikari/Nepse Data.txt",
+		"/home/adhikari/video.sh",
+		"/home/adhikari/documents/the phone call.docx",
+		"/home/adhikari/documents/english.txt",
+		"/home/adhikari/documents/coursera_mobile_course/Nepal.txt",
+		"/home/adhikari/documents/email.html",
+		"/home/adhikari/documents/hello.py",
+		"/home/adhikari/AndroidStudioProjects/epos-android/app/src/main/java/com/genesesofts/epos/CustomGrid.java",
+		"/home/adhikari/AndroidStudioProjects/ItEbooks/app/src/main/res/drawable/button.xml",
+		"/home/adhikari/AndroidStudioProjects/ItEbooks/app/src/main/res/layout/activity_main.xml",
+		"/home/adhikari/AndroidStudioProjects/ItEbooks/app/src/main/res/drawable/buttonselect.xml",
+		"/home/adhikari/AndroidStudioProjects/ItEbooks/app/src/main/res/drawable/button_pressed.xml",
+		"/home/adhikari/AndroidStudioProjects/ItEbooks/app/src/main/java/com/bigfootsoftwares/ebooks/MainActivity.java",
+		"/home/adhikari/tmp/women_voting_right.txt",
+		"/home/adhikari/.config/openbox/menu.xml",
+		"/home/adhikari/workspace/.metadata/.plugins/com.salesforce.ide.core/force-ide.log",
+		"/home/adhikari/Dropbox/Public/archive/where_to_live.html",
+		"/home/adhikari/Dropbox/Public/archive/temp.txt",
+		"/home/adhikari/Dropbox/Public/archive/life_expectancy.html",
+		"/home/adhikari/Dropbox/Public/coursera/reason.txt",
+		"/home/adhikari/Dropbox/Public/projects/pargati/home page pragati school/01 Home page  001.docx",
+		"/home/adhikari/UCI HAR Dataset/README.txt",
+		"/home/adhikari/UCI HAR Dataset/activity_labels.txt",
+		"/home/adhikari/UCI HAR Dataset/features_info.txt",
+		"/home/adhikari/UCI HAR Dataset/features.txt",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/logstash_server/logstash_server_jenkins.sh",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/graphite_install.rb",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/grafana_chef.rb",
+		"/home/adhikari/projects/aws/auto scale trigger.py",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/github/aws-scripts/resource calculator.py",
+		"/home/adhikari/projects/big_foot/twitter/main.js",
+		"/home/adhikari/projects/big_foot/scraping_projects/node-web-scraper/web.js",
+		"/home/adhikari/projects/big_foot/appfactory/wih/api/routes/index.js",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/uwsgi.sh",
+		"/home/adhikari/projects/big_foot/scraping_projects/scrap101/routes/user.js",
+		"/home/adhikari/projects/big_foot/scraping_projects/scrap101/routes/index.js",
+		"/home/adhikari/projects/big_foot/twitter/main.py",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/nagios_restlos_boto_dereg.py",
+		"/home/adhikari/Dropbox/Public/archive/companies born around gces.docx",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/contract.docx",
+		"/home/adhikari/.config/openbox/autostart",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/autoscale_trigger.py",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/logstash install/temp.rb",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/logstash_server/logstash_server.sh",
+		"/home/adhikari/.cache/.fr-PmYWkj/hosting-web/recipes/default.rb",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/nginx.repo",
+		"/home/adhikari/.cache/.fr-UavrmQ/hosting-web/recipes/default.rb",
+		"/home/adhikari/.cache/.fr-NGMEYc/hosting-web/templates/default/nginx.conf.erb",
+		"/home/adhikari/.cache/.fr-0ViNSr/hosting-web/templates/default/nginx.conf.erb",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/elasticsearch.repo",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/logstash install/default.rb",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/logstash install/temp_latest.rb",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/s3_chef_release.py",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/graphite_install.sh",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/graphite installation",
+		"/home/adhikari/Dropbox/Public/Books/welcome.php",
+		"/home/adhikari/Dropbox/Public/Books/Tax To Be fixed/application/controllers/welcome.php",
+		"/opt/logstash/conf/simple.conf",
+		"/home/adhikari/AndroidStudioProjects/What'sHappening/app/src/main/java/com/bigfootsoftwares/whatshappening/EventDetail.java",
+		"/var/www/buddha/application/views/welcome_message.php",
+		"/var/www/buddha/application/controllers/welcome.php",
+		"/home/adhikari/Dropbox/Public/projects/anjani_dai/jenkins/default.rb",
+		"/home/adhikari/backup/noobs/README.md",
+		"/home/adhikari/Dropbox/Public/coursera/courses/03_GettingData/01_04_downLoadingFiles/index.html",
+		"/home/adhikari/Dropbox/Public/coursera/courses/03_GettingData/01_01_obtainingDataMotivation/index.html",
+		"/home/adhikari/.cache/.fr-j5sll3/vnc_setup/set_vnc_password_for_all.sh",
+		"/home/adhikari/backup/noobs/sdcontent/INSTRUCTIONS-README.txt",
+		"/var/www/whoami.php",
+		"/home/adhikari/Dropbox/Public/myscripts/kantipurdownloader.py"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"index.js",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"userName",
+			"it",
+			"/it",
+			"diff",
+			"logout",
+			">",
+			"login",
+			"upload_id",
+			"upload",
+			"POST",
+			"filename",
+			"Content-Type",
+			"filename",
+			"-data",
+			"Method:",
+			"XMLHttp",
+			"name=\"",
+			"upload/",
+			"upload",
+			"value",
+			"<form>",
+			"color",
+			"Jr",
+			"update_ssh_users",
+			"ssh",
+			"updatessh",
+			"1",
+			"yahoo",
+			"hotmail",
+			"gmail",
+			"context",
+			"customAdapter",
+			"sharedpreferences",
+			"execute",
+			"Clever",
+			"image",
+			"dis",
+			"Display",
+			"adhikari",
+			"java",
+			"root@jenkins-slave-prod-01-int:/opt/deploy/jenkins-slave/cookbooks/jenkins-slave/recipes# ",
+			"interest",
+			"round",
+			"interest",
+			"popup",
+			"def hostname",
+			"replacehost",
+			"/etc/host",
+			"DisplayIma",
+			"DisplayImage",
+			"ja",
+			"JSOnAdapter",
+			"JSOnA",
+			"round",
+			"tax",
+			"view",
+			"itag",
+			"LinearLayout",
+			"ll",
+			"iat",
+			"password",
+			"&amp;",
+			"spreadsheets.google.com/pub?key=",
+			">\n",
+			" colspan=\"2\"",
+			", ",
+			"<br />",
+			"asynchttp",
+			"logo",
+			"instagram",
+			"./Instagram_files/",
+			"None",
+			"date =",
+			"adapter",
+			"data =",
+			"</Linear",
+			"<Linear",
+			"pressedO",
+			"shared",
+			"editor",
+			"shared",
+			"Async",
+			"client",
+			"usersM",
+			"</td>",
+			"delete",
+			"put",
+			"post",
+			"get",
+			"POST",
+			"DELETE",
+			"=== \"POST\"",
+			"=== \"PUT\"",
+			"=== \"GET\"",
+			"GET",
+			"PUT",
+			"bool",
+			"else if",
+			"Story",
+			"connection.close",
+			"salik.adhikari@gmail.com",
+			"kurtha",
+			"http://ramrodeal.com/magento/",
+			"isNetwork",
+			"R.id.",
+			"getView",
+			"GetDown",
+			"new ",
+			"listView1",
+			"MainA",
+			"MainAc",
+			"MainActivity",
+			"onclick",
+			"client.",
+			"FeedItems",
+			"nm",
+			"\"url\":",
+			"karnali",
+			"deshle",
+			"samaya",
+			"muluk",
+			"muluk Bahi",
+			"karnali",
+			"tin gh",
+			"cause",
+			"GET",
+			"POST",
+			"bootstrap"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"&",
+			"",
+			"userM",
+			"",
+			"DELETE",
+			"PUT",
+			"POST",
+			"GET",
+			"Bool",
+			"elseif",
+			"mongoose.connection.close()",
+			"http://localhost/pushpathapa.com.np/",
+			"\"title\":",
+			"POST",
+			"GET",
+			"name",
+			"longitude",
+			"latitude",
+			"$value",
+			".textContent",
+			".innerHTML",
+			"httplib",
+			"http",
+			".php",
+			"current_selection",
+			"",
+			"BigFoot Softwares",
+			"Sublime",
+			"subl"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 173.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 100.0
+	},
+	"project": "phonegap.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 253.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

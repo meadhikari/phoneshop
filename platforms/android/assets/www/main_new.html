@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phone shop - Buy</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-toggle.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css" />
+</head>
+<body>
+  <div class="home-wrapper">
+   <div class="home-content">
+    <div role="tabpanel">
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#buy" aria-controls="buy" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
+        <li role="presentation"><a href="#sell" aria-controls="sell" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span></a></li>
+        <li role="presentation"><a href="#offer" aria-controls="offer" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span></a></li>
+        <li role="presentation"><a href="#report" aria-controls="report" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span></a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="buy">
+         <div class="buy-content">
+          <h4>Customer Details</h4>
+          <div class="form-group">
+           <div class="form-row">
+            <label>Name:</label>
+            <input type="text" class="app-form-control" placeholder="Customer Name" id="customer_name">
+          </div>
+          <div class="form-row">
+            <label>Post code:</label>
+            <input type="text" class="app-form-control" placeholder="Post Code" id="postcode">
+          </div>
+          <div class="form-row">
+            <label>Street:</label>
+            <input type="text" class="app-form-control" placeholder="Street" id="street">
+          </div>
+
+          <div class="form-row">
+            <label>City:</label>
+            <input type="text" class="app-form-control" placeholder="City" id="city">
+          </div>
+          <div class="form-row">
+            <label>Country:</label>
+            <input type="text" class="app-form-control" placeholder="Country" id="country">
+          </div>
+          <div class="form-row">
+            <label>Email:</label>
+            <input type="text" class="app-form-control" placeholder="Email" id="email">
+          </div>
+          <div class="form-row">
+            <label>Phone:</label>
+            <input type="text" class="app-form-control" placeholder="Phone" id="phone">
+          </div>
+          <div class="form-row">
+            <label>Bill No:</label>
+            <input type="text" class="app-form-control" placeholder="Bill No" id="bill_number">
+          </div>
+          <div class="form-row">
+            <label>Transaction Type:</label>
+            <input type="text" class="app-form-control" placeholder="Transaction Type" id="transaction_type">
+          </div>
+          <div class="form-row">
+            <label>MWSP:</label>
+            <input type="checkbox" checked data-toggle="toggle" id="tax" placeholder="mwsp">
+          </div>
+          <div class="form-row id-images">
+            <label>ID:</label>
+            <img src="images/camera.jpg" id="kpicture1">
+            <img src="images/camera.jpg" id="kpicture2">
+          </div>
+        </div>
+        <h4>Phone Details</h4>
+        <div class="form-group">    			
+         <div class="form-group" id="phone_detail">    			
+          <div class="form-row">
+           <label>Name:</label>
+           <input type="text" class="app-form-control" placeholder="Phone Name" id="article_name">
+         </div>
+         <div class="form-row">
+           <label>Manufacturer:</label>
+           <input type="text" class="app-form-control" placeholder="Manufacturer" id="manufacturer">
+         </div>
+         <div class="form-row">
+           <label>Type:</label>
+           <input type="text" class="app-form-control" placeholder="Type" id="article_type">
+         </div>
+         <div class="form-row">
+           <label>Model:</label>
+           <input type="text" class="app-form-control" placeholder="Model" id="model">
+         </div>
+         <div class="form-row has-feedback has-feedback-left">
+          <label>IMEI:</label>
+          <input type="text" class="app-form-control" placeholder="IMEI" id="imei">
+          <i class="glyphicon glyphicon-barcode" id="barcode"></i>
+        </div>    
+        <div class="form-row">
+         <label>Price:</label>
+         <input type="text" class="app-form-control" placeholder="Price" id="price">
+       </div>
+     </div>
+   </div>
+   <div class="clear">
+     <a href="#" class="clear-btn" id="clear"><span class="glyphicon glyphicon-remove"></span></a>
+   </div>
+   <div class="signature"></div>
+   <div class="button-area">
+     <input type="submit" value="SUBMIT" id="ksubmit">
+   </div>
+ </div>
+</div>
+<div role="tabpanel" class="tab-pane" id="sell">
+  <div class="sell-content">
+    <h4>Customer Details</h4>
+    <div id="customer_detail">
+     <div class="form-group">
+      <div class="form-row">
+       <label>Name:</label>
+       <input type="text" class="app-form-control" placeholder="Customer Name" id="customer_name">
+     </div>
+     <div class="form-row">
+       <label>Post code:</label>
+       <input type="text" class="app-form-control" placeholder="Post Code" id="postcode">
+     </div>
+     <div class="form-row">
+       <label>Street:</label>
+       <input type="text" class="app-form-control" placeholder="Street" id="street">
+     </div>
+
+     <div class="form-row">
+       <label>City:</label>
+       <input type="text" class="app-form-control" placeholder="City" id="city">
+     </div>
+     <div class="form-row">
+       <label>Country:</label>
+       <input type="text" class="app-form-control" placeholder="Country" id="country">
+     </div>
+     <div class="form-row">
+       <label>Email:</label>
+       <input type="text" class="app-form-control" placeholder="Email" id="email">
+     </div>
+     <div class="form-row">
+       <label>Phone:</label>
+       <input type="text" class="app-form-control" placeholder="Phone" id="phone">
+     </div>
+     <div class="form-row">
+       <label>Bill No:</label>
+       <input type="text" class="app-form-control" placeholder="Bill No" id="bill_number">
+     </div>
+     <div class="form-row">
+       <label>Transaction Type:</label>
+       <input type="text" class="app-form-control" placeholder="Transaction Type" id="transaction_type">
+     </div>
+     <div class="form-row id-images">
+       <label>ID:</label>
+       <img src="images/camera.jpg" id="rpicture1">
+       <img src="images/camera.jpg" id="rpicture2">
+     </div>
+   </div>
+ </div>
+ <h4>Select Phone(s):</h4>
+ <div class="form-group">
+  <p>
+    <div class="table-responsive report-table">
+     <table id="phones" class="display" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>Manufacturer</th>
+          <th>Model</th>
+          <th>IMEI</th>
+          <th>Add</th>
+        </tr>
+      </thead>
+      <tbody id="select_phones">
+        
+        
+      </tbody>
+    </table>
+  </div>
+</p>
+</div>
+
+<h4>Selected Phone(s):</h4>
+<div class="no-form-group">
+ <div class="table-responsive report-table">
+  <table id="phones" cellspacing="0" cellpadding="10" class="table-striped" width="100%">
+    <thead>
+      <tr>
+        <th>Manufacturer</th>
+        <th>Model</th>
+        <th>IMEI</th>
+      </tr>
+    </thead>
+    <tbody id="selected_phones">
+      
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+
+<h4>Other Details</h4>
+<div id="other_detail_container">
+ <div class="form-group">    			
+  <div class="form-row">
+   <label>Name:</label>
+   <input type="text" class="app-form-control other_name" placeholder="Name">
+ </div>
+ <div class="form-row">
+   <label>Price:</label>
+   <input type="text" class="app-form-control other_price" placeholder="Price">
+ </div>
+ <div class="form-row">
+   <label>Quantity:</label>
+   <input type="text" class="app-form-control other_quantity" placeholder="Quantity" >
+ </div>
+</div>
+</div>
+<div class="add">
+ <a href="#" class="add-btn"><span class="glyphicon glyphicon-plus" id="add_other"></span></a>
+</div>
+<!-- <div class="signature"></div> -->
+<div class="button-area">
+ <input type="submit" value="SUBMIT" id="rsubmit">
+</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane" id="offer">
+ <div class="offer-content">
+    		<div class="row offer-row">
+    			<div class="col-xs-6 col-sm-6">
+    				<p>Nokia <span>6300</span></p>
+    			</div>
+    			<div class="col-xs-6 col-sm-6">
+    				<p>Samsung <span>S3</span></p>
+    			</div>
+    		</div>
+    		<div class="row offer-row">
+    			<div class="col-xs-6 col-sm-6">
+    				<p>Motorola <span>Android One</span></p>
+    			</div>
+    			<div class="col-xs-6 col-sm-6">
+    				<p>Micromax <span>12</span></p>
+    			</div>
+    		</div>
+    		<div class="row offer-row">
+    			<div class="col-xs-6 col-sm-6">
+    				<p>Nokia <span>6300</span></p>
+    			</div>
+    			<div class="col-xs-6 col-sm-6">
+    				<p>Samsung <span>S3</span></p>
+    			</div>
+    		</div>
+    		<div class="row offer-row">
+    			<div class="col-xs-6 col-sm-6">
+    				<p>Motorola <span>Android One</span></p>
+    			</div>
+    			<div class="col-xs-6 col-sm-6">
+    				<p>Micromax <span>12</span></p>
+    			</div>
+    		</div>
+    		<div class="row offer-row">
+    			<div class="col-xs-6 col-sm-6">
+    				<p>Nokia <span>6300</span></p>
+    			</div>
+    			<div class="col-xs-6 col-sm-6">
+    				<p>Samsung <span>S3</span></p>
+    			</div>
+    		</div>
+    		<div class="row offer-row">
+    			<div class="col-xs-6 col-sm-6">
+    				<p>Motorola <span>Android One</span></p>
+    			</div>
+    			<div class="col-xs-6 col-sm-6">
+    				<p>Micromax <span>12</span></p>
+    			</div>
+    		</div>
+    		<div class="row offer-row">
+    			<div class="col-xs-6 col-sm-6">
+    				<p>Nokia <span>6300</span></p>
+    			</div>
+    			<div class="col-xs-6 col-sm-6">
+    				<p>Samsung <span>S3</span></p>
+    			</div>
+    		</div>
+    		<div class="row offer-row">
+    			<div class="col-xs-6 col-sm-6">
+    				<p>Motorola <span>Android One</span></p>
+    			</div>
+    			<div class="col-xs-6 col-sm-6">
+    				<p>Micromax <span>12</span></p>
+    			</div>
+    		</div>
+    	</div>
+</div>
+<div role="tabpanel" class="tab-pane" id="report">
+ <div class="report-content">
+  <div class="report-filter">
+   <h4>Filter Report</h4>
+   <div class="form-group">
+    
+     <div class="form-row has-feedback has-feedback-left">
+       <label>From:</label>
+       <input type="date" class="app-form-control" Placeholder="From" id="from">
+       <i class="glyphicon glyphicon-calendar"></i>
+
+     </div>
+     <div class="form-row has-feedback has-feedback-left" >
+       <label>To:</label>
+       <input type="date" class="app-form-control" Placeholder="To" id="to">
+       <i class="glyphicon glyphicon-calendar"></i>
+     </div>
+     <div class="form-row">
+       <label>Status:</label>
+       <select class="app-select" id="status">
+        <option id="default">Default</option>
+        <option id="sell">Sell</option>
+        <option id="buy">Buy</option>
+      </select>
+    </div>
+  </div>
+  <div class="button-area">
+    <a href="#" id="print">PRINT</a>
+  </div>
+  <div class="report-table">
+    <table width="100%" cellspacing="0" cellpadding="10" border="0" align="center">
+     <thead>
+      <tr>
+       <th>Item</th>
+       <th>Net</th>
+       <th>Tax</th>
+       <th>Gross</th>
+     </tr>
+   </thead>
+   <tbody id="tbody">
+   </tbody>
+ </table>
+</div>
+</div>
+
+</div>
+</div>
+
+</body>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/bootstrap-toggle.js"></script>
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="libs/flashcanvas.js"></script>
+  <![endif]-->
+  <script src="js/jSignature.min.js"></script>
+  <script src="js/page/kauf.js"></script>
+  <script src="js/page/rauc.js"></script>
+  <script src="js/page/report.js"></script>
+  <script type="text/javascript">
+   
+   $('#myTab a').click(function (e) {
+     e.preventDefault();
+     $(this).tab('show');
+   });
+   
+   $( document).ready(function() {
+
+    
+   });
+ </script>
+ <script type="text/javascript" src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+ </html>

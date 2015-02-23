@@ -1,0 +1,442 @@
+html, body{
+	color: #000;
+	height: 100%;
+	margin: 0;
+	font-family: helvetica;
+}
+body{
+	min-height: 100%;
+}
+*{
+	box-sizing: border-box;
+}
+a{
+	color: #DF1D15 !important;
+}
+.login-wrapper{
+	position: relative;
+	height: 100%;
+	text-align: center;
+	width: 100%;
+	display: table;
+	/*background:url('../images/bg.jpg');*/
+	background: -webkit-radial-gradient(circle, #E3786C, #DF1D15);
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 20px;
+}
+.login-content{
+	min-height: 100%;
+	display: table-cell;
+	vertical-align: middle;
+}
+.login-form-control{
+	display: block;
+	padding: 8px 15px;
+	margin: 15px 0;
+	width: 100%;
+	border: 1px solid #c7c7c7;
+	border-radius: 17px;
+	box-shadow: 2px 4px 0px rgba(0, 0, 0, 0.3);
+	height: 34px;
+}
+.login-logo img{
+	width: 40%;
+}
+.login-logo h1{
+	color: #fff;
+}
+.login-btn{
+	display: block;
+	padding: 8px 15px;
+	margin: 15px 0;
+	width: 50%;
+	border: 1px solid #c7c7c7;
+	border-radius: 17px;
+	box-shadow: 2px 4px 0px rgba(0, 0, 0, 0.3);
+	font-weight: bold;
+	color: #DF1D15;
+	background: rgba(255, 255, 255, 1);
+	height: 34px;
+}
+.login-btn:hover{
+	background: rgba(255, 255, 255, 0.9);
+}
+.login-wrapper p{
+	text-align: left;
+}
+.login-wrapper a{
+	color: #fff;
+	text-decoration: none;
+}
+
+/*nav tabs*/
+
+.nav-tabs{
+	border: 0;
+	border-radius: 0;
+}
+.nav-tabs > li > a{
+	border: 0;
+	border-radius: 0;
+	font-size: 17px !important;
+	color: #fff !important;
+	padding-left: 0;
+	padding-right: 0;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+	border: 0;
+	border-radius: 0;
+	color: #DF1D15 !important;
+	background-color: rgba(255, 255, 255, 0.64);
+}
+.nav > li > a:hover, .nav > li > a:focus{
+	background-color: rgba(255, 255, 255, 0.64);
+}
+.nav-tabs > li{
+	width: 25%;
+	text-align: center;
+}
+li a span{
+	display: block !important;
+	font-size: 20px;
+	/*margin-bottom: 7px;*/
+}
+.nav-tabs{
+	border-bottom: 5px solid #DF1D15;
+	padding-bottom: 1px;
+	/*background:url('../images/bg.jpg');*/
+	background: -webkit-radial-gradient(circle, #E3786C, #DF1D15);
+	min-height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: calc(100% - 48px);
+	margin-left: 48px;
+}
+.home-wrapper{
+	background-color: #F8F8F8;
+	min-height: 100%;
+}
+/*.app-form-control{
+	display: block;
+	padding: 8px 15px;
+	margin: 15px 0;
+	width: 100%;
+	border: 1px solid #c7c7c7;
+	border-radius: 17px;
+	box-shadow: 2px 4px 0px rgba(0, 0, 0, 0.3);
+}*/
+.form-row label{
+	width:30%;
+	color: #3D3D3D;
+}
+.app-form-control{
+	width: 65%;
+	padding: 4px 10px;
+	border: 0;
+}
+.app-form-control:focus,
+.app-select:focus{
+	outline: 0;
+}
+.customer-id span{
+	font-size: 31px;
+	color: #DF1D15;
+}
+.form-row {
+	/*margin-bottom: 10px;*/
+	border-bottom: 1px solid #c7c7c7;
+	padding: 5px 10px;
+	min-height: 40px;
+}
+.form-row:last-child{
+	border: 0;
+}
+.tab-content{
+	background: #F8F8F8;
+	padding: 10px;
+}
+.tab-content h4{
+	padding-left: 10px;
+}
+.form-group{
+	border: 1px solid #ADADAD;
+	background: #fff;
+	box-shadow: 1px 2px 0px 0px #fff;
+	border-radius: 10px;
+}
+.no-form-group{
+	border: 1px solid #ADADAD;
+	border-top: 0;
+	border-bottom: 0;
+	background: #fff;
+	box-shadow: 1px 2px 0px 0px #fff;
+	border-radius: 0px;
+}
+.app-select{
+	width: 100%;
+	border: 0;
+	font-size: 16px;
+	padding: 3px 5px;
+	width: 65%;
+}
+.report-table{
+	margin: -10px;
+	margin-top: 10px;
+}
+.report-table table th{
+	border-bottom: 5px solid #DF1D15;
+	background: -webkit-radial-gradient(circle, #E3786C, #DF1D15);
+	padding: 5px 0px;
+	text-align: left;
+	color: #1A1A1A;
+	padding-left: 10px;
+}
+.report-pdf-table table th{
+	background: none;
+}
+.report-table table td{
+	border-left: 1px solid #DF1D15;
+	padding: 4px 0px;
+	text-align: left;
+	color: #373737;
+	padding-left: 10px;
+}
+.report-table table td:first-child{
+	border-left: 0px solid #DF1D15;
+}
+.report-table table tr:last-child td{
+	border-bottom: 5px solid #DF1D15;
+	color: #373737;
+	border-top: 1px solid #DF1D15;
+	text-transform: uppercase;
+}
+.report-table th:first-child,
+.report-table td:first-child {
+	text-align: left;
+	padding-left: 10px;
+}
+.landing-body{
+	background: -webkit-radial-gradient(circle, #E3786C, #DF1D15);
+	display: table;
+}
+.landing-wrapper{
+	display: table-cell;
+	vertical-align: middle;
+	padding: 30px;
+	width: 100%;
+	text-align: center;
+}
+.logo{
+	width: 50%;
+}
+.loader{
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+}
+.loader img{
+	position: relative;
+	left: -50%;
+}
+.pdf-body{
+	background-color: #EFEFEF;
+	padding: 10px;
+}
+.pdf-wrapper h1{
+	text-align: center;
+	text-align: center;
+	color: #444444;
+	font-weight: lighter;
+}
+.customer-details label{
+	font-weight: bold;
+
+}
+.button-area{
+	text-align: center;
+}
+.button-area input,
+.button-area a{
+	text-decoration: none;
+	background: #DF1D15;
+	border: 0;
+	padding: 10px 20px;
+	color: #fff;
+	/*margin-bottom: 5px;*/
+	display: inline-block;
+}
+.button-area input:focus,
+.button-area input:hover,
+.button-area a:hover{
+	background-color: rgba(41, 160, 213, 0.75);
+}
+.add-btn{
+	margin-left: 10px;
+	font-size: 20px;
+}
+.signature{
+	border: 1px solid #c7c7c7;
+	margin: 20px 0;
+}
+.signature canvas{
+	height: 180px !important;
+}
+.id-images img{
+	width: 80px;
+	border: 1px solid #c7c7c7;
+	border-radius: 15px;
+	height: auto;
+}
+.toggle-on.btn{
+	color: #fff;
+}
+.table-responsive{
+	margin: 0px !important;
+	border: 0 !important;
+}
+.table-striped tr:last-child td{
+	border-top: 0px !important;
+}
+.glyphicon-barcode {
+  position: absolute;
+  right: 0;
+  padding: 8px 27px;
+}
+.glyphicon-calendar {
+  position: absolute;
+  right: 0;
+  padding: 8px 27px;
+}
+
+/*offer section*/
+.offer-row p{
+	font-size: 23px;
+	text-align: center;
+	background: rgba(225, 64, 54, 0.1);
+	padding: 10px 0;
+	border-bottom: 5px solid #DF1D15;
+}
+.offer-row p span{
+	display: block;
+	font-size: 15px
+}
+/*aside*/
+
+#menu {
+  position: fixed;
+  background-color: #222;
+  height: 100%;
+  z-index: 10;
+  width: 280px;
+  color: #bbb;
+  top: 0;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+
+#menu ul {
+  list-style: none;
+  margin-top: 0;
+  padding: 0
+}
+
+#menu ul li { border-bottom: 1px solid #2a2a2a; }
+
+#menu>ul>li>a { border-left: 4px solid #222; }
+
+#menu ul li a {
+  color: inherit;
+  font-size: 16px;
+  display: block;
+  padding: 8px 0 8px 7px;
+  text-decoration: none;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+#menu ul a i {
+  margin-right: 10px;
+  font-size: 18px;
+  margin-top: 3px;
+  width: 20px;
+}
+
+#menu ul a i[class*='fa-caret'] { float: right; }
+
+#menu ul a:hover,
+#menu ul a.active {
+  background-color: #111;
+  border-left-color: #DF1D15;
+  color: #DF1D15;
+}
+
+#menu ul a:hover i:first-child { color: #DF1D15; }
+/*4. The CSS to style the sub menus.*/
+
+#menu ul li a.active+ul { display: block }
+
+#menu ul li ul {
+  margin-top: 0;
+  display: none;
+}
+
+#menu ul li ul li { border-bottom: none; }
+
+#menu ul li ul li a { padding-left: 30px; }
+
+#menu ul li ul li a:hover { background-color: #1A1A1A; }
+/*5. The CSS to turn the side menu into an off-canvas navigation that is toggleable via JavaScript.*/
+
+.left { left: -280px; }
+
+.show { left: 0; }
+/*6. Style & position the toggle button whatever you like.*/
+
+#showmenu {
+  margin-left: 100%;
+  position: absolute;
+  top: 0;
+  padding: 6px 10px 7px 10px;
+  font-size: 1.3em;
+  color: #DF1D15;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background: #DF1D15;
+	padding: 10px 15px;
+	color: #fff;
+}
+
+.form-group.required .control-label:after {
+  content:"*";
+  color:black;
+}
+.btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary{
+	background-color: #DF1D15 !important;
+	border-color: #881C18 !important;
+}
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default{
+	background-color: #F3BAB6;
+	border-color: #751812;
+}
+.btn:active, .btn.active{
+	box-shadow: none !important;
+}
+#showmenu{
+color: #fff !important;
+}
+.nav-tabs{
+position: fixed;
+min-height: 0 !important;
+top: 0;
+
+}
+ .home-wrapper{
+padding-top: 50px;
+}
+
