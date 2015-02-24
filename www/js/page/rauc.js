@@ -172,7 +172,7 @@ $( document ).ready(function() {
 			other["price"] = other_prices[i]
 			other["qty"] = other_quantities[i]
 			other["tax"] = other_taxes[i]
-			other["tax_value"] = other_tax_value[i]
+			other["tax_value"] = other_taxes_values[i]
 			others.push(other)
 		};
 		cust_info["phones"]	= SELLING_PHONES

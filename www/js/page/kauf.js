@@ -102,11 +102,6 @@ $( "#ksubmit" ).click(function() {
         alert("Bill number is required");
         return
     }
-    else if(!validateEmail(cust_info["email"]))
-    {
-        alert("Please provide a valid email");
-        return   
-    }
     else if(!IsNumeric(cust_info["price"]))
     {
         alert("Invalid price");
@@ -115,10 +110,10 @@ $( "#ksubmit" ).click(function() {
     else
     {
         console.log(cust_info);
-            //spinnerplugin.show(); 
+            spinnerplugin.show(); 
             $.post('http://s250217848.online.de/api/public/index.php/transaction/buy', cust_info, 
                 function(returnedData){
-                    //spinnerplugin.hide(); 
+                    spinnerplugin.hide(); 
                     
                     if (returnedData.statusCode !== 200)
                     {
@@ -130,34 +125,34 @@ $( "#ksubmit" ).click(function() {
                     }
                     else
                     {
-                        alert("Success")
+                        alert("Data Inserted Succesfully")
                         $.ajax({
-  type: "POST",
-  url: "https://mandrillapp.com/api/1.0/messages/send.json",
-  data: {
-    'key': '4hL8kWTGJB1Ztv2rDVNalA',
-    'message': {
-      'from_email': 'humpta@holly.com',
-      'to': [
-          {
-            'email': 'salik.adhikari@gmail.com',
-            'name': 'Bikram Adhikari',
-            'type': 'to'
-          },
-          {
-            'email': 'toyou.dev@gmail.com',
-            'name': 'Dev Bahadur Paudel',
-            'type': 'to'
-          }
-        ],
-      'autotext': 'true',
-      'subject': 'Receipt',
-      'html': 'Hi, The receipt for the transaction ' + returnedData.message.replace("/index.php","")
-    }
-  }
- }).done(function(response) {
-   alert(JSON.stringify(response)); 
- });
+                              type: "POST",
+                              url: "https://mandrillapp.com/api/1.0/messages/send.json",
+                              data: {
+                                'key': '4hL8kWTGJB1Ztv2rDVNalA',
+                                'message': {
+                                  'from_email': 'humpta@holly.com',
+                                  'to': [
+                                      {
+                                        'email': 'salik.adhikari@gmail.com',
+                                        'name': 'Bikram Adhikari',
+                                        'type': 'to'
+                                      },
+                                      {
+                                        'email': 'toyou.dev@gmail.com',
+                                        'name': 'Dev Bahadur Paudel',
+                                        'type': 'to'
+                                      }
+                                    ],
+                                  'autotext': 'true',
+                                  'subject': 'Receipt',
+                                  'html': 'Hi, The receipt for the transaction ' + returnedData.message.replace("/index.php","")
+                                }
+                              }
+                             }).done(function(response) {
+                               alert(JSON.stringify(response)); 
+                             });
                         //window.location = "https://docs.google.com/viewer?url="+returnedData.message.replace("/index.php","");
                         $(':input').val('');
 

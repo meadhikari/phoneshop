@@ -67,6 +67,7 @@ $( document ).ready(function() {
 		$.get("forms/other_detail.html", function (data) {
 			data = $(data).attr("id","number"+Math.random())
 			$("#other_detail_container").append(data);
+			$('.other_tax').bootstrapToggle();
 			$(".other_clear").click(function(event)
 			{
 			    event.preventDefault();
@@ -77,6 +78,7 @@ $( document ).ready(function() {
 			})
 
 		});
+
 	})
 	$('#manufacturer_select').on('change', function (e) {
     	var optionSelected = $("option:selected", this);
@@ -170,7 +172,7 @@ $( document ).ready(function() {
 			other["price"] = other_prices[i]
 			other["qty"] = other_quantities[i]
 			other["tax"] = other_taxes[i]
-			other["tax_value"] = other_tax_value[i]
+			other["tax_value"] = other_taxes_values[i]
 			others.push(other)
 		};
 		cust_info["phones"]	= SELLING_PHONES
