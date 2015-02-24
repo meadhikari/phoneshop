@@ -151,7 +151,7 @@ $( "#ksubmit" ).click(function() {
                                 }
                               }
                              }).done(function(response) {
-                               alert(JSON.stringify(response)); 
+                               alert("Email Sent"); 
                              });
                         //window.location = "https://docs.google.com/viewer?url="+returnedData.message.replace("/index.php","");
                         $(':input').val('');
