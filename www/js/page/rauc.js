@@ -67,6 +67,7 @@ $( document ).ready(function() {
 		$.get("forms/other_detail.html", function (data) {
 			data = $(data).attr("id","number"+Math.random())
 			$("#other_detail_container").append(data);
+			$('.other_tax').bootstrapToggle();
 			$(".other_clear").click(function(event)
 			{
 			    event.preventDefault();
@@ -77,6 +78,7 @@ $( document ).ready(function() {
 			})
 
 		});
+
 	})
 	$('#manufacturer_select').on('change', function (e) {
     	var optionSelected = $("option:selected", this);

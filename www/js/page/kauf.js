@@ -188,3 +188,4 @@ function IsNumeric(input)
 {
 	navigator.app.exitApp();
 }*/
+
