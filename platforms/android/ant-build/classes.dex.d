@@ -1,5 +1,7 @@
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/ant-build/classes.dex : \
+/home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/ant-build/classes/it/mobimentum/phonegapspinnerplugin/SpinnerPlugin.class \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/ant-build/classes/it/mobimentum/phonegapspinnerplugin/ProgressActivity.class \
+/home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/ant-build/classes/it/mobimentum/phonegapspinnerplugin/SpinnerPlugin$1.class \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/ant-build/classes/com/genesesoft/phonesoft/R$xml.class \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/ant-build/classes/com/genesesoft/phonesoft/R.class \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/ant-build/classes/com/genesesoft/phonesoft/R$array.class \

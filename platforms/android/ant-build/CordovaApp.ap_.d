@@ -150,12 +150,15 @@
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/images/loader.gif \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/images/Kaufvertrag.JPG \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/plugins/org.apache.cordova.camera \
+/home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/plugins/it.mobimentum.phonegapspinnerplugin \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/plugins/com.phonegap.plugins.barcodescanner \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/plugins/org.apache.cordova.camera/www \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/plugins/org.apache.cordova.camera/www/Camera.js \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/plugins/org.apache.cordova.camera/www/CameraConstants.js \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/plugins/org.apache.cordova.camera/www/CameraPopoverOptions.js \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/plugins/org.apache.cordova.camera/www/CameraPopoverHandle.js \
+/home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/plugins/it.mobimentum.phonegapspinnerplugin/www \
+/home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/plugins/it.mobimentum.phonegapspinnerplugin/www/spinnerplugin.js \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/plugins/com.phonegap.plugins.barcodescanner/www \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/plugins/com.phonegap.plugins.barcodescanner/www/barcodescanner.js \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/forms/other_detail.html \

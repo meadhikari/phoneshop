@@ -205,11 +205,11 @@ $( document ).ready(function() {
     	}
     	
 		else{
-			//spinnerplugin.show();
+			spinnerplugin.show();
 			console.log(cust_info)
 			$.post('http://s250217848.online.de/api/public/index.php/transaction/sell', cust_info, 
 				function(returnedData){
-					//spinnerplugin.hide(); 
+					spinnerplugin.hide(); 
 					//alert(JSON.stringify(returnedData))
                     if (returnedData.statusCode !== 200)
                     {

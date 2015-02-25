@@ -15,6 +15,10 @@
                         {
                             "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SpinnerPlugin\"><param name=\"android-package\" value=\"it.mobimentum.phonegapspinnerplugin.SpinnerPlugin\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -32,6 +36,10 @@
                         },
                         {
                             "xml": "<activity android:label=\"@string/share_name\" android:name=\"com.google.zxing.client.android.HelpActivity\"><intent-filter><action android:name=\"android.intent.action.VIEW\" /><category android:name=\"android.intent.category.DEFAULT\" /></intent-filter></activity>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:configChanges=\"orientation|keyboardHidden|keyboard|screenSize|locale\" android:launchMode=\"singleInstance\" android:name=\"it.mobimentum.phonegapspinnerplugin.ProgressActivity\" android:theme=\"@android:style/Theme.Translucent.NoTitleBar\"><intent-filter></intent-filter></activity>",
                             "count": 1
                         }
                     ],
@@ -546,6 +554,9 @@
             "PACKAGE_NAME": "com.genesesoft.phonesoft"
         },
         "org.apache.cordova.camera": {
+            "PACKAGE_NAME": "com.genesesoft.phonesoft"
+        },
+        "it.mobimentum.phonegapspinnerplugin": {
             "PACKAGE_NAME": "com.genesesoft.phonesoft"
         }
     },
