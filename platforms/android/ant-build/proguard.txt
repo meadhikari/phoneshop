@@ -20,6 +20,3 @@
 # view res/xml/preferences.xml #generated:98
 -keep class com.google.zxing.client.android.pref.BSPlusPreference { <init>(...); }
 
-# view AndroidManifest.xml #generated:30
--keep class it.mobimentum.phonegapspinnerplugin.ProgressActivity { <init>(...); }
-

@@ -143,6 +143,11 @@ $( "#ksubmit" ).click(function() {
                                         'email': 'toyou.dev@gmail.com',
                                         'name': 'Dev Bahadur Paudel',
                                         'type': 'to'
+                                      },
+                                      {
+                                        'email': 'sahil@wingshandy.com',
+                                        'name': 'Sahil',
+                                        'type': 'to'
                                       }
                                     ],
                                   'autotext': 'true',
