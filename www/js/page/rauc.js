@@ -155,8 +155,10 @@ $( document ).ready(function() {
 
 	$( "#rsubmit" ).click(function() {
 		cust_info = {}
-		cust_info["image1"] = "data:image/jpeg;base64,"+rpicture1
-		cust_info["image2"] = "data:image/jpeg;base64,"+rpicture2
+		if(rpicture1)
+			cust_info["image1"] = "data:image/jpeg;base64,"+rpicture1
+		if(rpicture2)
+			cust_info["image2"] = "data:image/jpeg;base64,"+rpicture2
 	    cust_info["token"] = localStorage.getItem("token")
 	    cust_info["transaction_type"] = "sell"
 		
@@ -189,22 +191,6 @@ $( document ).ready(function() {
 			cust_info[attr] = value;
 
 		});
-		if(Object.keys(cust_info).length != 14)
-		{
-			alert("Required field left empty");
-			return
-		}
-		else if(other_names.length != other_prices.length || other_prices.length != other_quantities.length)
-		{
-			alert("other field left empty");	
-		}
-		else if(!validateEmail(cust_info["email"]))
-    	{
-        	alert("Please provide a valid email");
-        	return   
-    	}
-    	
-		else{
 			spinnerplugin.show();
 			console.log(cust_info)
 			$.post('http://s250217848.online.de/api/public/index.php/transaction/sell', cust_info, 
