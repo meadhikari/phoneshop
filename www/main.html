@@ -293,6 +293,18 @@
 </div>
 
 </body>
+<script type="text/javascript">
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+  var token = getUrlVars()["token"];
+;
+</script>
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -333,6 +345,7 @@
   });
 </script>
 <script>
+
   $(".logout").click(function(){
     localStorage.clear();
     window.location="login.html";
