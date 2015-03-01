@@ -28,7 +28,9 @@ function removeFromCart(index)
 function addToCart(article)
 {
 	var price = prompt("Selling Price", "");
-	SELLING_PHONES.push({"id":article.id,"price":price,"model":article.model})
+	if (price)
+	{
+		SELLING_PHONES.push({"id":article.id,"price":price,"model":article.model})
 	var tr = "<tr id=selectedRow"+article.id+">"+
 	"<td>"+article["manufacturer"]+"</td>"+
 	"<td>"+article["model"]+"</td>"+
@@ -37,7 +39,9 @@ function addToCart(article)
 	"<td><button onclick='return removeFromCart("+JSON.stringify(article.id)+")'><span class='glyphicon glyphicon-remove'></span>Remove</button></td>"+
 	"</tr>"
 	console.log(SELLING_PHONES)
-	$("#selected_phones").append(tr);
+	$("#selected_phones").append(tr);	
+	}
+	
 
 }
 
@@ -163,7 +167,7 @@ $( "#rsubmit" ).click(function() {
 	{
 		cust_info["image2"] = "data:image/jpeg;base64,"+rpicture2
 	}
-	cust_info["token"] = localStorage.getItem("token")
+	cust_info["token"] = token
 	cust_info["transaction_type"] = "sell"
 
 	var other_names = ($(".other_name").map(function(){return $(this).val();}).get()).filter(Boolean);
@@ -195,12 +199,13 @@ $( "#rsubmit" ).click(function() {
 			cust_info[attr] = value;
 
 		});
-	spinnerplugin.show();
+	//spinnerplugin.show();
 	console.log(cust_info)
 	$.post('http://s250217848.online.de/api/public/index.php/transaction/sell', cust_info, 
 		function(returnedData){
-			spinnerplugin.hide(); 
-					//alert(JSON.stringify(returnedData))
+			//spinnerplugin.hide(); 
+					alert(JSON.stringify(cust_info))
+					alert(JSON.stringify(returnedData))
 					if (returnedData.statusCode !== 200)
 					{
 						for (var key in returnedData.errors) {
