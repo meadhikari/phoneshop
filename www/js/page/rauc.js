@@ -163,7 +163,7 @@ $( "#rsubmit" ).click(function() {
 	{
 		cust_info["image2"] = "data:image/jpeg;base64,"+rpicture2
 	}
-	cust_info["token"] = localStorage.getItem("token")
+	cust_info["token"] = token
 	cust_info["transaction_type"] = "sell"
 
 	var other_names = ($(".other_name").map(function(){return $(this).val();}).get()).filter(Boolean);

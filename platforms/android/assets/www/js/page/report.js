@@ -56,7 +56,7 @@ $( "#print" ).click(function() {
   data["from_date"] = $('#from')[0].value
   data["to_date"] = $('#to')[0].value
   data["type"] = $("#status").find('option:selected').attr('id')
-  data["token"] = localStorage.getItem("token")
+  data["token"] = token
   spinnerplugin.show();
   $.post('http://s250217848.online.de/api/public/index.php/report/list', data, 
     function(returnedData){

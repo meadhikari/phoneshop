@@ -56,7 +56,7 @@ $( "#ksubmit" ).click(function() {
     cust_info = {}
     cust_info["image1"] = "data:image/jpeg;base64,"+kpicture1
     cust_info["image2"] = "data:image/jpeg;base64,"+kpicture2
-    cust_info["token"] = localStorage.getItem("token")
+    cust_info["token"] = token
     cust_info["transaction_type"] = "buy"
     cust_info["article_type"] = "phone"
     cust_info["signature"] = "data:image/jpeg;base64,"+$(".signature").jSignature("getData", "base30")[1]
@@ -132,7 +132,7 @@ $( "#ksubmit" ).click(function() {
                               data: {
                                 'key': '4hL8kWTGJB1Ztv2rDVNalA',
                                 'message': {
-                                  'from_email': 'humpta@holly.com',
+                                  'from_email': 'transactions@wingshandy.com',
                                   'to': [
                                       {
                                         'email': 'salik.adhikari@gmail.com',
