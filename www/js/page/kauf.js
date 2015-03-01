@@ -1,11 +1,11 @@
-var kpicture1;
-var kpicture2;
+var kpicture1_data;
+var kpicture2_data;
 function konSuccess1(imageData) {
-   kpicture1 = imageData;
+   kpicture1_data = imageData;
   $("#kpicture1").attr('src',"data:image/jpeg;base64," + imageData);                
 }
 function konSuccess2(imageData) {
-  kpicture2 = imageData;
+  kpicture2_data = imageData;
   $("#kpicture2").attr('src',"data:image/jpeg;base64," + imageData);                
 }
 
@@ -54,6 +54,22 @@ $(document).ready(function() {
 
 $( "#ksubmit" ).click(function() {
     cust_info = {}
+    if(kpicture1_data)
+    {
+      cust_info["image1"] = "data:image/jpeg;base64,"+kpicture1_data
+    }
+    else
+    {
+      delete cust_info["image1"]  
+    }
+    if(kpicture2_data)
+    {
+      cust_info["image2"] = "data:image/jpeg;base64,"+kpicture2_data
+    }
+    else
+    {
+      delete cust_info["image2"]  
+    }
     cust_info["image1"] = "data:image/jpeg;base64,"+kpicture1
     cust_info["image2"] = "data:image/jpeg;base64,"+kpicture2
     cust_info["token"] = token
