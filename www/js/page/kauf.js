@@ -197,10 +197,11 @@ function IsNumeric(input)
 {
     return (input - 0) == input && (''+input).trim().length > 0;
 }
-//document.addEventListener("backbutton", onBackKeyDown, false);
 
-/*function onBackKeyDown() 
+document.addEventListener("backbutton", onBackKeyDown, false);
+
+function onBackKeyDown() 
 {
 	navigator.app.exitApp();
-}*/
+}
 
