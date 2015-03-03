@@ -53,6 +53,7 @@ $(document).ready(function() {
     });*/
 
 $( "#ksubmit" ).click(function() {
+  
     cust_info = {}
     if(kpicture1_data)
     {
@@ -70,8 +71,6 @@ $( "#ksubmit" ).click(function() {
     {
       delete cust_info["image2"]  
     }
-    cust_info["image1"] = "data:image/jpeg;base64,"+kpicture1
-    cust_info["image2"] = "data:image/jpeg;base64,"+kpicture2
     cust_info["token"] = token
     cust_info["transaction_type"] = "buy"
     cust_info["article_type"] = "phone"

@@ -1,14 +1,14 @@
 var SELLING_PHONES = []
 var ARTICLES = []
-var rpicture1;
-var rpicture2;
+var rpicture1_data;
+var rpicture2_data;
 function ronSuccess1(imageData) {
-	rpicture1 = imageData
+	rpicture1_data = imageData
 	$("#rpicture1").attr('src',"data:image/jpeg;base64," + imageData);                
 
 }
 function ronSuccess2(imageData) {
-	rpicture2 = imageData
+	rpicture2_data = imageData
 	$("#rpicture2").attr('src',"data:image/jpeg;base64," + imageData);                
 }
 
@@ -159,13 +159,21 @@ $("#rprint").click(function(){
 
 $( "#rsubmit" ).click(function() {
 	cust_info = {}
-	if(rpicture1)
+	if(rpicture1_data)
 	{
-		cust_info["image1"] = "data:image/jpeg;base64,"+rpicture1
+		cust_info["image1"] = "data:image/jpeg;base64,"+rpicture1_data
 	}
-	if(rpicture2)
+	else
 	{
-		cust_info["image2"] = "data:image/jpeg;base64,"+rpicture2
+		delete cust_info["image1"]	
+	}
+	if(rpicture2_data)
+	{
+		cust_info["image2"] = "data:image/jpeg;base64,"+rpicture2_data
+	}
+	else
+	{
+		delete cust_info["image2"]	
 	}
 	cust_info["token"] = token
 	cust_info["transaction_type"] = "sell"
