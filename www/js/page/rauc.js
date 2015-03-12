@@ -1,5 +1,6 @@
 var SELLING_PHONES = []
 var ARTICLES = []
+var CUSTOMERS = []
 var rpicture1_data;
 var rpicture2_data;
 function ronSuccess1(imageData) {
@@ -54,6 +55,27 @@ $( document ).ready(function() {
 
 	})*/
 
+$.get("http://s250217848.online.de/api/public/index.php/customer/all?token="+token, function( data ) {
+	CUSTOMERS = data.customer
+	
+	}); 
+
+$('.buyer_name').on('input',function(e){
+	//console.log($(this).val())
+	var current_text = $(this).val()
+	$.each(CUSTOMERS, function(i, v) {
+		if (v.name.toLowerCase().indexOf(current_text.toLowerCase()) >= 0) {
+            console.log(v)
+            $("#email").val(v.email)
+            $("#phone_number").val(v.phone)
+            $("#postcode").val(v.postcode)
+            $("#street").val(v.street)
+            $("#city").val(v.city)
+            $("#country").val(v.country)
+            return false;
+        }
+    });
+});
 $.get("http://s250217848.online.de/api/public/index.php/article/all?token="+token, function( data ) {
 	$("#select_phones").html('');
 	$("#selected_phones").html('');
@@ -252,8 +274,8 @@ $( "#rsubmit" ).click(function() {
 		{
 				cust_info[attr] = "none"  //comment this in production
 				return;
-			}
-			cust_info[attr] = value;
+		}
+		cust_info[attr] = value;
 
 		});
 	//spinnerplugin.show();

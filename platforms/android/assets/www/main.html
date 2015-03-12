@@ -69,10 +69,6 @@
            <label class="control-label">Manufacturer:</label>
            <input type="text" class="app-form-control" placeholder="Manufacturer" id="manufacturer">
          </div>
-         <div class="form-row">
-           <label class="control-label">Model:</label>
-           <input type="text" class="app-form-control" placeholder="Model" id="model">
-         </div>
          <div class="form-row has-feedback has-feedback-left">
           <label class="control-label">IMEI:</label>
           <input type="text" class="app-form-control" placeholder="IMEI" id="imei">
@@ -83,13 +79,10 @@
          <label class="control-label">Price:</label>
          <input type="text" class="app-form-control" placeholder="Price" id="price">
        </div>
-       <div class="form-row">
-            <label>Bill No:</label>
-            <input type="text" class="app-form-control" placeholder="Bill No" id="bill_number">
-          </div>
+       
           <div class="form-row">
             <label>MwSt:(0% or 19%)</label>
-            <input type="checkbox" checked data-toggle="toggle" id="tax" placeholder="mwsp">
+            <input type="checkbox" data-toggle="toggle" id="tax" placeholder="mwsp">
           </div>
           
      </div>
@@ -110,7 +103,7 @@
      <div class="form-group">
       <div class="form-row">
        <label>Name:</label>
-       <input type="text" class="app-form-control buyer_name" placeholder="Customer Name" id="customer_name" value="test">
+       <input type="text" class="app-form-control buyer_name" placeholder="Customer Name" id="customer_name" >
      </div>
      <div class="form-row">
        <label>Post code:</label>
@@ -131,21 +124,13 @@
      </div>
      <div class="form-row">
        <label>Email:</label>
-       <input type="text" class="app-form-control" placeholder="Email" id="email" value="dev@gmail.com">
+       <input type="text" class="app-form-control" placeholder="Email" id="email" >
      </div>
      <div class="form-row">
        <label>Phone:</label>
        <input type="text" class="app-form-control" placeholder="Phone" id="phone_number">
      </div>
-     <div class="form-row">
-       <label>Bill No:</label>
-       <input type="text" class="app-form-control" placeholder="Bill No" id="bill_number">
-     </div>
-     <div class="form-row id-images">
-       <label>ID:</label>
-       <img src="images/camera.jpg" id="rpicture1">
-       <img src="images/camera.jpg" id="rpicture2">
-     </div>
+     
    </div>
  </div>
  <h4 id="phone-sell">Select Phone(s):</h4>
@@ -212,15 +197,15 @@
  </div>
  <div class="form-row">
    <label>Quantity:</label>
-   <input type="text" class="app-form-control other_quantity" placeholder="Quantity" >
+   <input type="text" class="app-form-control other_quantity" placeholder="Quantity" value="1">
  </div>
  <div class="form-row">
     <label>MwSt:(0% or 19%)</label>
-    <input type="checkbox" checked data-toggle="toggle" class="other_tax" placeholder="mwsp">
+    <input type="checkbox" data-toggle="toggle" class="other_tax" placeholder="mwsp">
   </div>
  <div class="form-row">
       <label>Tax:</label>
-      <input type="text" class="app-form-control" placeholder="Tax" class="tax_value">
+      <input type="text" class="app-form-control tax_value" placeholder="Tax">
 </div>
           
 </div>
