@@ -65,7 +65,32 @@ $.get("http://s250217848.online.de/api/public/index.php/article/all?token="+toke
 		//
 		populateSelectPhones(ARTICLES)
 		
-	});        
+	}); 
+
+	
+	$('.other_price').on('input',function(e){
+			var tax_value = $(this).closest('div').next('div').next('div').next('div').find('.tax_value')
+			var other_tax = $(this).closest('div').next('div').next('div').find('.other_tax')
+   			//console.log($(this).next('.tax_value').val())
+   			//$(this).closest('.tax_value').val("0");
+     		if(other_tax.is(":checked")){
+     			if((parseFloat($(this).val()) * 0.19) > 0)
+     				tax_value.val(parseFloat($('.other_price').val()) * 0.19)
+     		}
+
+    });       
+    $('.other_tax').change(function() {
+    	var tax_value = $(this).parent().parent().next().find(".tax_value")
+		var other_price = $(this).parent().parent().prev().prev().find('.other_price')
+        if($(this).is(":checked")){
+     			if((parseFloat(other_price.val()) * 0.19) > 0)
+     				tax_value.val(parseFloat($('.other_price').val()) * 0.19)
+     	}
+     	else
+     	{
+     		tax_value.val(0)	
+     	}
+    });
 $('#phones').DataTable();
 $("#add_other").click(function(){
 	$.get("forms/other_detail.html", function (data) {
@@ -79,7 +104,31 @@ $("#add_other").click(function(){
 				//$('#'+$(this).closest('div').attr('id')).remove();
 				
 
-			})
+		})
+		$('.other_price').on('input',function(e){
+			var tax_value = $(this).closest('div').next('div').next('div').next('div').find('.tax_value')
+			var other_tax = $(this).closest('div').next('div').next('div').find('.other_tax')
+   			//console.log($(this).next('.tax_value').val())
+   			//$(this).closest('.tax_value').val("0");
+     		if(other_tax.is(":checked")){
+     			if((parseFloat($(this).val()) * 0.19) > 0)
+     				tax_value.val(parseFloat($(this).val()) * 0.19)
+     		}
+
+    });       
+    $('.other_tax').change(function() {
+    	var tax_value = $(this).parent().parent().next().find(".tax_value")
+		var other_price = $(this).parent().parent().prev().prev().find('.other_price')
+        if($(this).is(":checked")){
+     			if((parseFloat(other_price.val()) * 0.19) > 0)
+     				tax_value.val(parseFloat(other_price.val()) * 0.19)
+     	}
+     	else
+     	{
+     		tax_value.val(0)	
+     	}
+    });
+		
 
 	});
 

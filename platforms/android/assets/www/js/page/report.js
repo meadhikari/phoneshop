@@ -64,7 +64,54 @@ $( "#print" ).click(function() {
       alert(returnedData.path)
       if (returnedData.statusCode == 200)
       {
-          window.location = "https://docs.google.com/viewer?url="+returnedData.path;
+          alert(JSON.stringify(cust_info))
+          alert(JSON.stringify(returnedData))
+          if (returnedData.statusCode !== 200)
+          {
+            for (var key in returnedData.errors) {
+              alert(returnedData.errors[key])
+              return                             
+            }
+          }
+          else
+          {
+            alert("Report Generated")
+            $.ajax({
+              type: "POST",
+              url: "https://mandrillapp.com/api/1.0/messages/send.json",
+              data: {
+                'key': '4hL8kWTGJB1Ztv2rDVNalA',
+                'message': {
+                  'from_email': 'transactions@wingshandy.com',
+                  'to': [
+                  {
+                    'email': 'salik.adhikari@gmail.com',
+                    'name': 'Bikram Adhikari',
+                    'type': 'to'
+                  },
+                  {
+                    'email': 'toyou.dev@gmail.com',
+                    'name': 'Dev Bahadur Paudel',
+                    'type': 'to'
+                  },
+                  {
+                    'email': 'sahil@wingshandy.com',
+                    'name': 'Sahil',
+                    'type': 'to'
+                  }
+                  ],
+                  'autotext': 'true',
+                  'subject': 'Receipt',
+                  'html': 'Hi, The receipt for the transaction ' + returnedData.path.replace("/index.php","")
+                }
+              }
+            }).done(function(response) {
+              alert("Email Sent"); 
+            });
+                        //window.location = "https://docs.google.com/viewer?url="+returnedData.message.replace("/index.php","");
+                        $(':input').val('');
+                    }
+          //window.location = "https://docs.google.com/viewer?url="+returnedData.path;
       }
       else
       {
