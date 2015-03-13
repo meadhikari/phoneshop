@@ -42,7 +42,7 @@ function onFail(message) {
      e.preventDefault();
    } );
     $( "#kpicture1" ).click(function() {
-      navigator.camera.getPicture(konSuccess1, onFail, { quality: 10,
+      navigator.camera.getPicture(konSuccess1, onFail, { quality: 4,
         destinationType: Camera.DestinationType.DATA_URL,
         encodingType: Camera.EncodingType.JPEG
         
@@ -51,7 +51,7 @@ function onFail(message) {
       });
     });
     $( "#kpicture2" ).click(function() {
-      navigator.camera.getPicture(konSuccess2, onFail, { quality: 10,
+      navigator.camera.getPicture(konSuccess2, onFail, { quality: 4,
         destinationType: Camera.DestinationType.DATA_URL,
         encodingType: Camera.EncodingType.JPEG
         
@@ -83,9 +83,9 @@ $( "#ksubmit" ).click(function() {
   {
     delete cust_info["image2"]  
   }*/
-  cust_info["image1"] = dataURItoBlob(kpicture1_data)
+  cust_info["image1"] = kpicture1_data
 
-  cust_info["image2"] = dataURItoBlob(kpicture2_data)
+  cust_info["image2"] = kpicture2_data
   
   cust_info["token"] = token
   cust_info["transaction_type"] = "buy"
@@ -97,18 +97,15 @@ $( "#ksubmit" ).click(function() {
   cust_info["customer_name"] = document.getElementById("customer_name").value
   cust_info["article_name"] =  document.getElementById("article_name").value
   cust_info["manufacturer"] =  document.getElementById("manufacturer").value
-  cust_info["model"] = document.getElementById("model").value
   cust_info["imei"] = document.getElementById("imei").value
   cust_info["price"] = document.getElementById("price").value
-  cust_info["bill_number"] = document.getElementById("bill_number").value
-
+  
   cust_info["customer_name"] = "test"
   cust_info["article_name"] =  "test"
   cust_info["manufacturer"] =  "test"
-  cust_info["model"] = "test"
   cust_info["imei"] = "12345"
   cust_info["price"] = "345"
-  cust_info["bill_number"] = "3456"
+  
   if(document.getElementById("tax").value === "on")
   {
     cust_info["tax"] = 1
@@ -142,19 +139,61 @@ $( "#ksubmit" ).click(function() {
   }
   else
   {
-    var xhr = new XMLHttpRequest();
-    var formData = new FormData();
-    for(var k in cust_info) formData.append(k,cust_info[k]);
-    /*formData.append("image1", dataURItoBlob(kpicture1_data), {"type": "image/jpeg"});
-    formData.append("image2", dataURItoBlob(kpicture2_data), {"type": "image/jpeg"});*/
-    formData.append("image1",kpicture1_data)
-    formData.append("image2",kpicture2_data)
-    console.log(formData["article_name"])
-    xhr.onload = function (data) {
-      alert(JSON.stringify(data))
-    }
-    xhr.open("POST", "http://s250217848.online.de/api/public/index.php/transaction/buy", true);    
-    xhr.send(formData);
+  spinnerplugin.show();
+  console.log(cust_info)
+  $.post('http://s250217848.online.de/api/public/index.php/transaction/buy', cust_info, 
+    function(returnedData){
+      spinnerplugin.hide(); 
+          //alert(JSON.stringify(cust_info))
+          //alert(JSON.stringify(returnedData))
+          if (returnedData.statusCode !== 200)
+          {
+            for (var key in returnedData.errors) {
+              alert(returnedData.errors[key])
+              return                             
+            }
+          }
+          else
+          {
+            alert("Data Inserted Succesfully")
+            $.ajax({
+              type: "POST",
+              url: "https://mandrillapp.com/api/1.0/messages/send.json",
+              data: {
+                'key': '4hL8kWTGJB1Ztv2rDVNalA',
+                'message': {
+                  'from_email': 'transactions@wingshandy.com',
+                  'to': [
+                  {
+                    'email': 'salik.adhikari@gmail.com',
+                    'name': 'Bikram Adhikari',
+                    'type': 'to'
+                  },
+                  {
+                    'email': 'toyou.dev@gmail.com',
+                    'name': 'Dev Bahadur Paudel',
+                    'type': 'to'
+                  },
+                  {
+                    'email': 'sahil@wingshandy.com',
+                    'name': 'Sahil',
+                    'type': 'to'
+                  }
+                  ],
+                  'autotext': 'true',
+                  'subject': 'Receipt',
+                  'html': 'Hi, The receipt for the transaction ' + returnedData.message.replace("/index.php","")
+                }
+              }
+            }).done(function(response) {
+              alert("Email Sent"); 
+            });
+                        //window.location = "https://docs.google.com/viewer?url="+returnedData.message.replace("/index.php","");
+                        $(':input').val('');
+                    }
+                    
+
+                });    
     
   }
 

@@ -12,10 +12,10 @@ $(document ).ready(function() {
     });
 
 	function loginCheck (username, password) {        
-    //spinnerplugin.show();
+    spinnerplugin.show();
     $.post('http://s250217848.online.de/api/public/index.php/login/gettoken', { email: username, password : password}, 
     function(returnedData){
-         //spinnerplugin.hide(); 
+         spinnerplugin.hide(); 
          console.log("Yes")
          //alert(JSON.stringify(returnedData))
          if (returnedData.statusCode == 200)

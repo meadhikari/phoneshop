@@ -68,6 +68,10 @@ $('.buyer_name').on('input',function(e){
             console.log(v)
             $("#email").val(v.email)
             $("#phone_number").val(v.phone)
+            $("#postcode").val(v.postcode)
+            $("#street").val(v.street)
+            $("#city").val(v.city)
+            $("#country").val(v.country)
             return false;
         }
     });
@@ -273,14 +277,14 @@ $( "#rsubmit" ).click(function() {
 		}
 		cust_info[attr] = value;
 
-		});
-	//spinnerplugin.show();
+	});
+	spinnerplugin.show();
 	console.log(cust_info)
 	$.post('http://s250217848.online.de/api/public/index.php/transaction/sell', cust_info, 
 		function(returnedData){
-			//spinnerplugin.hide(); 
-					alert(JSON.stringify(cust_info))
-					alert(JSON.stringify(returnedData))
+			spinnerplugin.hide(); 
+					//alert(JSON.stringify(cust_info))
+					//alert(JSON.stringify(returnedData))
 					if (returnedData.statusCode !== 200)
 					{
 						for (var key in returnedData.errors) {
