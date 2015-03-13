@@ -45,16 +45,12 @@ function onFail(message) {
       navigator.camera.getPicture(konSuccess1, onFail, { quality: 4,
         destinationType: Camera.DestinationType.DATA_URL,
         encodingType: Camera.EncodingType.JPEG
-        
-
-
       });
     });
     $( "#kpicture2" ).click(function() {
       navigator.camera.getPicture(konSuccess2, onFail, { quality: 4,
         destinationType: Camera.DestinationType.DATA_URL,
-        encodingType: Camera.EncodingType.JPEG
-        
+        encodingType: Camera.EncodingType.JPEG        
       });
     });
     $( "#clear" ).click(function() {
@@ -83,10 +79,8 @@ $( "#ksubmit" ).click(function() {
   {
     delete cust_info["image2"]  
   }*/
-  cust_info["image1"] = kpicture1_data
-
-  cust_info["image2"] = kpicture2_data
-  
+  cust_info["image1"] = document.getElementById("kpicture1").src
+  cust_info["image2"] = document.getElementById("kpicture2").src
   cust_info["token"] = token
   cust_info["transaction_type"] = "buy"
   cust_info["article_type"] = "phone"

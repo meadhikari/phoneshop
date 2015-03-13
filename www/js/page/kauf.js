@@ -80,9 +80,8 @@ $( "#ksubmit" ).click(function() {
     delete cust_info["image2"]  
   }*/
   cust_info["image1"] = kpicture1_data
-
-  cust_info["image2"] = kpicture2_data
-  
+  cust_info["image2"] = kpicture1_data
+  alert(kpicture1_data)
   cust_info["token"] = token
   cust_info["transaction_type"] = "buy"
   cust_info["article_type"] = "phone"
