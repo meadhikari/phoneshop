@@ -332,6 +332,7 @@ $( "#rsubmit" ).click(function() {
 						});
                         //window.location = "https://docs.google.com/viewer?url="+returnedData.message.replace("/index.php","");
                         $(':input').val('');
+                        $("#rsubmit").val("Submit")
                     }
                     
 

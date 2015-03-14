@@ -1,17 +1,17 @@
 var kpicture1_data;
 var kpicture2_data;
 function konSuccess1(imageData) {
- kpicture1_data = "data:image/jpeg;base64," + imageData
- $("#kpicture1").attr('src',"data:image/jpeg;base64," + imageData);                
- //$("#kpicture1").attr('src',imageData);                
- //kpicture1_data = $("#kpicture1").imageBlob('image/jpeg').blob();
+ kpicture1_data = imageData
+ //$("#kpicture1").attr('src',"data:image/jpeg;base64," + imageData);                
+ $("#kpicture1").attr('src',imageData);                
+ 
  
  
 }
 function konSuccess2(imageData) {
-  kpicture2_data = "data:image/jpeg;base64," + imageData
-  $("#kpicture2").attr('src',"data:image/jpeg;base64," + imageData);                
-  //$("#kpicture2").attr('src',imageData);
+  kpicture2_data = imageData
+  //$("#kpicture2").attr('src',"data:image/jpeg;base64," + imageData);                
+  $("#kpicture2").attr('src',imageData);
   
 }
 
@@ -43,13 +43,13 @@ function onFail(message) {
    } );
     $( "#kpicture1" ).click(function() {
       navigator.camera.getPicture(konSuccess1, onFail, { quality: 4,
-        destinationType: Camera.DestinationType.DATA_URL,
+        destinationType: Camera.DestinationType.FILE_URI,
         encodingType: Camera.EncodingType.JPEG
       });
     });
     $( "#kpicture2" ).click(function() {
       navigator.camera.getPicture(konSuccess2, onFail, { quality: 4,
-        destinationType: Camera.DestinationType.DATA_URL,
+        destinationType: Camera.DestinationType.FILE_URI,
         encodingType: Camera.EncodingType.JPEG        
       });
     });
@@ -79,8 +79,9 @@ $( "#ksubmit" ).click(function() {
   {
     delete cust_info["image2"]  
   }*/
-  cust_info["image1"] = document.getElementById("kpicture1").src
-  cust_info["image2"] = document.getElementById("kpicture2").src
+  /*cust_info["image1"] = kpicture1_data
+  cust_info["image2"] = kpicture1_data*/
+  
   cust_info["token"] = token
   cust_info["transaction_type"] = "buy"
   cust_info["article_type"] = "phone"
@@ -131,64 +132,22 @@ $( "#ksubmit" ).click(function() {
     alert("Invalid price");
     return   
   }
+  else if(!kpicture1_data)
+  {
+    alert("Please select the images");
+    return
+  }
   else
   {
-  spinnerplugin.show();
-  console.log(cust_info)
-  $.post('http://s250217848.online.de/api/public/index.php/transaction/buy', cust_info, 
-    function(returnedData){
-      spinnerplugin.hide(); 
-          //alert(JSON.stringify(cust_info))
-          //alert(JSON.stringify(returnedData))
-          if (returnedData.statusCode !== 200)
-          {
-            for (var key in returnedData.errors) {
-              alert(returnedData.errors[key])
-              return                             
-            }
-          }
-          else
-          {
-            alert("Data Inserted Succesfully")
-            $.ajax({
-              type: "POST",
-              url: "https://mandrillapp.com/api/1.0/messages/send.json",
-              data: {
-                'key': '4hL8kWTGJB1Ztv2rDVNalA',
-                'message': {
-                  'from_email': 'transactions@wingshandy.com',
-                  'to': [
-                  {
-                    'email': 'salik.adhikari@gmail.com',
-                    'name': 'Bikram Adhikari',
-                    'type': 'to'
-                  },
-                  {
-                    'email': 'toyou.dev@gmail.com',
-                    'name': 'Dev Bahadur Paudel',
-                    'type': 'to'
-                  },
-                  {
-                    'email': 'sahil@wingshandy.com',
-                    'name': 'Sahil',
-                    'type': 'to'
-                  }
-                  ],
-                  'autotext': 'true',
-                  'subject': 'Receipt',
-                  'html': 'Hi, The receipt for the transaction ' + returnedData.message.replace("/index.php","")
-                }
-              }
-            }).done(function(response) {
-              alert("Email Sent"); 
-            });
-                        //window.location = "https://docs.google.com/viewer?url="+returnedData.message.replace("/index.php","");
-                        $(':input').val('');
-                    }
-                    
-
-                });    
-    
+    var options = new FileUploadOptions();
+    options.fileKey="image1";
+    options.fileName=kpicture1_data
+    options.mimeType="image/jpeg";
+    options.params = cust_info;
+    options.chunkedMode = false;
+    var ft = new FileTransfer();
+    spinnerplugin.show();
+    ft.upload(kpicture1_data, "http://s250217848.online.de/api/public/index.php/transaction/buy", win, fail, options);
   }
 
 
@@ -203,7 +162,7 @@ function IsNumeric(input)
 {
   return (input - 0) == input && (''+input).trim().length > 0;
 }
-
+kpicture1_data
 document.addEventListener("backbutton", onBackKeyDown, false);
 
 function onBackKeyDown() 
@@ -232,17 +191,60 @@ function getBase64Image(img) {
   }
 
 
- function win(r) {
-     alert("Code = " + r.responseCode);
-     alert("Response = " + r.response);
-     //alert($.parseJSON(r.response))    
- }
+  function win(r) {
+    spinnerplugin.hide();
+    returnedData = JSON.parse(r.response)
+    if (returnedData.statusCode !== 200)
+    {
+      for (var key in returnedData.errors) {
+          alert(returnedData.errors[key])
+          return                             
+      }
+    }
+    else
+    {
+      alert("Data Inserted Succesfully")
+      $.ajax({
+            type: "POST",
+            url: "https://mandrillapp.com/api/1.0/messages/send.json",
+            data: {
+                'key': '4hL8kWTGJB1Ztv2rDVNalA',
+                'message': {
+                  'from_email': 'transactions@wingshandy.com',
+                  'to': [
+                  {
+                    'email': 'salik.adhikari@gmail.com',
+                    'name': 'Bikram Adhikari',
+                    'type': 'to'
+                  },
+                  {
+                    'email': 'toyou.dev@gmail.com',
+                    'name': 'Dev Bahadur Paudel',
+                    'type': 'to'
+                  },
+                  {
+                    'email': 'sahil@wingshandy.com',
+                    'name': 'Sahil',
+                    'type': 'to'
+            }
+            ],
+                  'autotext': 'true',
+                  'subject': 'Receipt',
+                  'html': 'Hi, The receipt for the transaction ' + returnedData.message.replace("/index.php","")
+                }
+              }
+            }).done(function(response) {
+              alert("Email Sent"); 
+      });
+    }
+  }
 
- function fail(error) {
+   function fail(error) {
+    spinnerplugin.hide();
     alert("Response = " +  error.code);
- }
- function dataURItoBlob(dataURI)
-{
+  }
+  function dataURItoBlob(dataURI)
+  {
     var byteString = atob(dataURI.split(',')[1]);
 
     var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
@@ -251,9 +253,36 @@ function getBase64Image(img) {
     var ia = new Uint8Array(ab);
     for (var i = 0; i < byteString.length; i++)
     {
-        ia[i] = byteString.charCodeAt(i);
+      ia[i] = byteString.charCodeAt(i);
     }
 
     var bb = new Blob([ab], { "type": mimeString });
     return bb;
+  }
+  function populateSelectPhones(articles)
+  {
+    for (var i = articles.length - 1; i >= 0; i--) {
+      //console.log(articles[i]["manufacturer"])
+      var tr = "<tr>"+
+      "<td>"+articles[i]["model"]+"</td>"+
+      "<td>"+articles[i]["price"]+"</td>"+      
+      "<td>"+articles[i]["imei"]+"</td>"+
+      "<td><button onclick='return addToCart("+JSON.stringify(articles[i])+")'><span class='glyphicon glyphicon-plus'></span>Add</button></td>"+
+      "</tr>"
+
+      $("#select_phones").append(tr);
+    }
+  }
+  function today(){
+    var today = new Date();
+    var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is 0!
+  var yyyy = today.getFullYear();
+  if(dd<10){
+    dd='0'+dd
+  } 
+  if(mm<10){
+    mm='0'+mm
+  } 
+  return dd+'/'+mm+'/'+yyyy;
 }
