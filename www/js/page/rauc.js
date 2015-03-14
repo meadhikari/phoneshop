@@ -31,6 +31,7 @@ function addToCart(article)
 	var price = prompt("Selling Price", "");
 	if (price)
 	{
+		console.log(article)
 		SELLING_PHONES.push({"id":article.id,"price":price,"model":article.model})
 	var tr = "<tr id=selectedRow"+article.id+">"+
 	"<td>"+article["manufacturer"]+"</td>"+
@@ -189,6 +190,7 @@ $("#rprint").click(function(){
 		var other_names = ($(".other_name").map(function(){return $(this).val();}).get()).filter(Boolean);
 		var other_prices = ($(".other_price").map(function(){return $(this).val();}).get()).filter(Boolean);
 		var other_quantities = ($(".other_quantity").map(function(){return $(this).val();}).get()).filter(Boolean);
+
 		others = []
 		other_sum = 0;
 		for (var i = other_names.length - 1; i >= 0; i--) {
@@ -253,7 +255,7 @@ $( "#rsubmit" ).click(function() {
 	var other_prices = ($(".other_price").map(function(){return $(this).val();}).get()).filter(Boolean);
 	var other_quantities = ($(".other_quantity").map(function(){return $(this).val();}).get()).filter(Boolean);
 	var other_taxes = ($(".other_tax").map(function(){return $(this).val();}).get()).filter(Boolean);
-	var other_taxes_values = ($(".other_tax_value").map(function(){return $(this).val();}).get()).filter(Boolean);
+	var other_taxes_values = ($(".tax_value").map(function(){return $(this).val();}).get()).filter(Boolean);
 	others = []
 	for (var i = other_names.length - 1; i >= 0; i--) {
 		other = {}	
@@ -278,11 +280,12 @@ $( "#rsubmit" ).click(function() {
 		cust_info[attr] = value;
 
 	});
-	spinnerplugin.show();
+	//spinnerplugin.show();
 	console.log(cust_info)
 	$.post('http://s250217848.online.de/api/public/index.php/transaction/sell', cust_info, 
 		function(returnedData){
-			spinnerplugin.hide(); 
+			console.log(returnedData)
+			//spinnerplugin.hide(); 
 					//alert(JSON.stringify(cust_info))
 					//alert(JSON.stringify(returnedData))
 					if (returnedData.statusCode !== 200)
