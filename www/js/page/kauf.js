@@ -86,7 +86,7 @@ $( "#ksubmit" ).click(function() {
   cust_info["transaction_type"] = "buy"
   cust_info["article_type"] = "phone"
 
-  cust_info["signature"] = $(".signature").jSignature("getData")[1]
+  cust_info["signature"] = $(".signature").jSignature("getData")
 
   delete cust_info["ksubmit"];
 
@@ -102,7 +102,7 @@ $( "#ksubmit" ).click(function() {
   cust_info["imei"] = "12345"
   cust_info["price"] = "345"
   
-  if(document.getElementById("tax").value === "on")
+  if(document.getElementById("tax").checked)
   {
     cust_info["tax"] = 1
   }
@@ -228,7 +228,7 @@ function getBase64Image(img) {
                     'email': 'sahil@wingshandy.com',
                     'name': 'Sahil',
                     'type': 'to'
-            }
+                  }
             ],
                   'autotext': 'true',
                   'subject': 'Receipt',
