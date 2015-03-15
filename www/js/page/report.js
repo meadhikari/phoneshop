@@ -5,15 +5,16 @@ $( "#view" ).click(function() {
   data["to_date"] = $('#to')[0].value
   data["type"] = $("#status").find('option:selected').attr('id')
   data["token"] = localStorage.getItem("token")
-  spinnerplugin.show();
+  //spinnerplugin.show();
   $.post('http://s250217848.online.de/api/public/index.php/report/all', data, 
     function(returnedData){
-      spinnerplugin.hide(); 
+      //spinnerplugin.hide(); 
       if (returnedData.statusCode == 200)
       {
         transactions = returnedData.transactions;
         var cost_sum = 0.0;
         var tax_sum = 0.0;
+        console.log(transactions)
         for (var i = transactions.length - 1; i >= 0; i--) {
           var article_name = returnedData.transactions[i]["article_name"]
           var cost = parseFloat(returnedData.transactions[i]["cost"])
@@ -26,6 +27,7 @@ $( "#view" ).click(function() {
           "<td>"+cost+"</td>"+
           "<td>"+tax+"</td>"+
           "<td>"+net+"</td>"+
+          "<td><button id="+returnedData.transactions[i]["id"]+">Refund</button></td>"+
           "</tr>"
 
           $("#tbody").append(tr);

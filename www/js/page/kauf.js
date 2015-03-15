@@ -85,7 +85,8 @@ $( "#ksubmit" ).click(function() {
   cust_info["token"] = token
   cust_info["transaction_type"] = "buy"
   cust_info["article_type"] = "phone"
-  cust_info["signature"] = "data:image/jpeg;base64,"+$(".signature").jSignature("getData", "base30")[1]
+
+  cust_info["signature"] = $(".signature").jSignature("getData")[1]
 
   delete cust_info["ksubmit"];
 
@@ -132,13 +133,14 @@ $( "#ksubmit" ).click(function() {
     alert("Invalid price");
     return   
   }
-  else if(!kpicture1_data)
+  /*else if(!kpicture1_data)
   {
     alert("Please select the images");
     return
-  }
+  }*/
   else
   {
+    
     var options = new FileUploadOptions();
     options.fileKey="image1";
     options.fileName=kpicture1_data
