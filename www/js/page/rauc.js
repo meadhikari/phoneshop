@@ -192,6 +192,8 @@ $("#rprint").click(function(){
 		var other_names = ($(".other_name").map(function(){return $(this).val();}).get()).filter(Boolean);
 		var other_prices = ($(".other_price").map(function(){return $(this).val();}).get()).filter(Boolean);
 		var other_quantities = ($(".other_quantity").map(function(){return $(this).val();}).get()).filter(Boolean);
+		var tax_values = ($(".tax_value").map(function(){return $(this).val();}).get()).filter(Boolean);
+
 
 		others = []
 		other_sum = 0;
@@ -200,6 +202,7 @@ $("#rprint").click(function(){
 			other["name"] = other_names[i]
 			other["price"] = parseFloat(other_prices[i]) * parseFloat(other_quantities[i])
 			other["qty"] = other_quantities[i]
+			other["tax"] = tax_values[i]
 			other_sum = other_sum + parseFloat(other_prices[i])
 			others.push(other)
 		};
