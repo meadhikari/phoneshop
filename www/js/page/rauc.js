@@ -33,10 +33,10 @@ function addToCart(article)
 	if (price)
 	{
 		console.log(article)
-		SELLING_PHONES.push({"id":article.id,"price":price,"model":article.model})
+		SELLING_PHONES.push({"id":article.id,"price":price,"name":article.name})
 	var tr = "<tr id=selectedRow"+article.id+">"+
 	"<td>"+article["manufacturer"]+"</td>"+
-	"<td>"+article["model"]+"</td>"+
+	"<td>"+article["name"]+"</td>"+
 	"<td>"+article["imei"]+"</td>"+
 	"<td>"+price+"</td>"+
 	"<td><button onclick='return removeFromCart("+JSON.stringify(article.id)+")'><span class='glyphicon glyphicon-remove'></span>Remove</button></td>"+
@@ -353,7 +353,7 @@ function populateSelectPhones(articles)
     for (var i = articles.length - 1; i >= 0; i--) {
       //console.log(articles[i]["manufacturer"])
       var tr = "<tr>"+
-      "<td>"+articles[i]["model"]+"</td>"+
+      "<td>"+articles[i]["name"]+"</td>"+
       "<td>"+articles[i]["price"]+"</td>"+      
       "<td>"+articles[i]["imei"]+"</td>"+
       "<td><button onclick='return addToCart("+JSON.stringify(articles[i])+")'><span class='glyphicon glyphicon-plus'></span>Add</button></td>"+
