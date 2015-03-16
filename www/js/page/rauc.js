@@ -192,7 +192,7 @@ $( "#rsubmit" ).click(function() {
 	var other_names = ($(".other_name").map(function(){return $(this).val();}).get()).filter(Boolean);
 	var other_prices = ($(".other_price").map(function(){return $(this).val();}).get()).filter(Boolean);
 	var other_quantities = ($(".other_quantity").map(function(){return $(this).val();}).get()).filter(Boolean);
-	var other_taxes = ($(".other_tax").map(function(){return $(this).val();}).get()).filter(Boolean);
+	var other_taxes = ($(".other_tax").map(function(){if(this.checked){return "on"}else{return "off"};}).get()).filter(Boolean);
 	var other_taxes_values = ($(".tax_value").map(function(){return $(this).val();}).get()).filter(Boolean);
 	others = []
 	for (var i = other_names.length - 1; i >= 0; i--) {
@@ -220,9 +220,9 @@ $( "#rsubmit" ).click(function() {
 	
 	cust_info["phones"]	= JSON.stringify(SELLING_PHONES)
 	cust_info["others"]	= JSON.stringify(others)
-	console.log(JSON.stringify(SELLING_PHONES))
+	
 	//spinnerplugin.show();
-	console.log(cust_info)
+	
 	$.post('http://s250217848.online.de/api/public/index.php/transaction/sell', cust_info, 
 		function(returnedData){
 			console.log(returnedData)
@@ -275,6 +275,19 @@ $( "#rsubmit" ).click(function() {
 						});
                         //window.location = "https://docs.google.com/viewer?url="+returnedData.message.replace("/index.php","");
                         $(':input').val('');
+                        $("#selected_phones").empty()
+                        $.get("http://s250217848.online.de/api/public/index.php/article/all?token="+token, function( data ) {
+							$("#select_phones").html('');
+							$("#selected_phones").html('');
+							ARTICLES = data["article"]		
+							$.each(ARTICLES, function( i, article ) {
+							if (!$("#manufacturer_select option[value='" + article["manufacturer"] + "']").length)
+								$("#manufacturer_select").append($("<option />").val(article["manufacturer"]).text(article["manufacturer"]));
+							});	
+		
+							populateSelectPhones(ARTICLES)
+		
+						}); 
                         $("#rsubmit").val("Submit")
                     }
                     
