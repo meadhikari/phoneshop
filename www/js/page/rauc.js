@@ -240,7 +240,7 @@ $( "#rsubmit" ).click(function() {
 					}
 					else
 					{
-						alert("Data Inserted Succesfully")
+						alert("Transaction Completed")
 						$.ajax({
 							type: "POST",
 							url: "https://mandrillapp.com/api/1.0/messages/send.json",
