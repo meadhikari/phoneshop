@@ -23,7 +23,7 @@ function removeFromCart(index)
 	SELLING_PHONES = SELLING_PHONES.filter(function (el) {
 		return el.id !== index;
 	});
-	console.log(SELLING_PHONES)
+	//console.log(SELLING_PHONES)
 
 }
 function addToCart(article)
@@ -32,8 +32,8 @@ function addToCart(article)
 	var price = prompt("Selling Price", "");
 	if (price)
 	{
-		console.log(article)
-		SELLING_PHONES.push({"id":article.id,"price":price,"name":article.name})
+		console.log({"id":article.id,"price":price,"name":article["name"]})
+		SELLING_PHONES.push({"id":article.id,"price":price,"name":article["name"]})
 	var tr = "<tr id=selectedRow"+article.id+">"+
 	"<td>"+article["manufacturer"]+"</td>"+
 	"<td>"+article["name"]+"</td>"+
@@ -41,7 +41,7 @@ function addToCart(article)
 	"<td>"+price+"</td>"+
 	"<td><button onclick='return removeFromCart("+JSON.stringify(article.id)+")'><span class='glyphicon glyphicon-remove'></span>Remove</button></td>"+
 	"</tr>"
-	console.log(SELLING_PHONES)
+	//console.log(SELLING_PHONES)
 	$("#selected_phones").append(tr);	
 	}
 	
@@ -67,7 +67,7 @@ $('.buyer_name').on('input',function(e){
 	var current_text = $(this).val()
 	$.each(CUSTOMERS, function(i, v) {
 		if (v.name.toLowerCase().indexOf(current_text.toLowerCase()) >= 0) {
-            console.log(v)
+            //console.log(v)
             $("#email").val(v.email)
             $("#phone_number").val(v.phone)
             $("#postcode").val(v.postcode)
@@ -182,57 +182,7 @@ $( "#rpicture2" ).click(function() {
 	});
 });
 
-$("#rprint").click(function(){
-	$.get( "report.html", function( data ) {
-		var sum = 0;
-		for (var i = SELLING_PHONES.length - 1; i >= 0; i--) {
-			sum = sum + parseFloat(SELLING_PHONES[i].price)
-		};
-		var other_names = ($(".other_name").map(function(){return $(this).val();}).get()).filter(Boolean);
-		var other_prices = ($(".other_price").map(function(){return $(this).val();}).get()).filter(Boolean);
-		var other_quantities = ($(".other_quantity").map(function(){return $(this).val();}).get()).filter(Boolean);
-		var tax_values = ($(".tax_value").map(function(){return $(this).val();}).get()).filter(Boolean);
 
-
-		others = []
-		other_sum = 0;
-		for (var i = other_names.length - 1; i >= 0; i--) {
-			other = {}	
-			other["name"] = other_names[i]
-			other["price"] = parseFloat(other_prices[i]) * parseFloat(other_quantities[i])
-			other["qty"] = other_quantities[i]
-			other["tax"] = tax_values[i]
-			other_sum = other_sum + parseFloat(other_prices[i])
-			others.push(other)
-		};
-		sum = sum + other_sum
-		content = TemplateEngine(data, {
-			transaction_type: "Sell",
-			today:today(),
-			customer_name:$(".buyer_name").val(),
-			phones:SELLING_PHONES,
-			others: others,
-			total: sum
-		})
-		var w = window.open();
-        /*var type = "text/html";
-		var title = "test.html";
-		window.plugins.PrintPlugin.print(content,function(){console.log('success')},function(){console.log('fail')},"",type,title);*/
-
-		/*cordova.plugins.printer.print(content, 'Document.html', function () {
-    			alert('printing finished or canceled')
-    		});*/
-  		/*var html = $("#rreport").html();
-  		$("body").printPage()
-  		$(w.document.body).html(content);*/
-
-
-
-
-  	});		
-
-
-})
 
 $( "#rsubmit" ).click(function() {
 	cust_info = {}
@@ -254,8 +204,7 @@ $( "#rsubmit" ).click(function() {
 		other["tax_value"] = other_taxes_values[i]
 		others.push(other)
 	};
-	cust_info["phones"]	= SELLING_PHONES
-	cust_info["others"]	= others
+	
 	$.each($("#customer_detail input"), function(key,value)
 	{
 		var attr = $(value).attr("id");
@@ -268,6 +217,10 @@ $( "#rsubmit" ).click(function() {
 		cust_info[attr] = value;
 
 	});
+	
+	cust_info["phones"]	= JSON.stringify(SELLING_PHONES)
+	cust_info["others"]	= JSON.stringify(others)
+	console.log(JSON.stringify(SELLING_PHONES))
 	//spinnerplugin.show();
 	console.log(cust_info)
 	$.post('http://s250217848.online.de/api/public/index.php/transaction/sell', cust_info, 
