@@ -82,7 +82,6 @@ $.get("http://s250217848.online.de/api/public/index.php/article/all?token="+toke
 	$("#select_phones").html('');
 	$("#selected_phones").html('');
 	ARTICLES = data["article"]		
-	console.log(ARTICLES)
 	$.each(ARTICLES, function( i, article ) {
 		if (!$("#manufacturer_select option[value='" + article["manufacturer"] + "']").length)
 			$("#manufacturer_select").append($("<option />").val(article["manufacturer"]).text(article["manufacturer"]));
@@ -237,22 +236,6 @@ $("#rprint").click(function(){
 
 $( "#rsubmit" ).click(function() {
 	cust_info = {}
-	if(rpicture1_data)
-	{
-		cust_info["image1"] = "data:image/jpeg;base64,"+rpicture1_data
-	}
-	else
-	{
-		delete cust_info["image1"]	
-	}
-	if(rpicture2_data)
-	{
-		cust_info["image2"] = "data:image/jpeg;base64,"+rpicture2_data
-	}
-	else
-	{
-		delete cust_info["image2"]	
-	}
 	cust_info["token"] = token
 	cust_info["transaction_type"] = "sell"
 
@@ -292,13 +275,15 @@ $( "#rsubmit" ).click(function() {
 			console.log(returnedData)
 			//spinnerplugin.hide(); 
 					//alert(JSON.stringify(cust_info))
-					//alert(JSON.stringify(returnedData))
+					
 					if (returnedData.statusCode !== 200)
 					{
+						
 						for (var key in returnedData.errors) {
 							alert(returnedData.errors[key])
 							return                             
 						}
+						
 					}
 					else
 					{

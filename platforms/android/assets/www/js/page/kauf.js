@@ -85,7 +85,8 @@ $( "#ksubmit" ).click(function() {
   cust_info["token"] = token
   cust_info["transaction_type"] = "buy"
   cust_info["article_type"] = "phone"
-  cust_info["signature"] = "data:image/jpeg;base64,"+$(".signature").jSignature("getData", "base30")[1]
+
+  cust_info["signature"] = $(".signature").jSignature("getData")
 
   delete cust_info["ksubmit"];
 
@@ -95,13 +96,13 @@ $( "#ksubmit" ).click(function() {
   cust_info["imei"] = document.getElementById("imei").value
   cust_info["price"] = document.getElementById("price").value
   
-  cust_info["customer_name"] = "test"
-  cust_info["article_name"] =  "test"
-  cust_info["manufacturer"] =  "test"
+  cust_info["customer_name"] = "bikram"
+  cust_info["article_name"] =  "s5"
+  cust_info["manufacturer"] =  "samsung"
   cust_info["imei"] = "12345"
   cust_info["price"] = "345"
   
-  if(document.getElementById("tax").value === "on")
+  if(document.getElementById("tax").checked)
   {
     cust_info["tax"] = 1
   }
@@ -132,13 +133,14 @@ $( "#ksubmit" ).click(function() {
     alert("Invalid price");
     return   
   }
-  else if(!kpicture1_data)
+  /*else if(!kpicture1_data)
   {
     alert("Please select the images");
     return
-  }
+  }*/
   else
   {
+    
     var options = new FileUploadOptions();
     options.fileKey="image1";
     options.fileName=kpicture1_data
@@ -226,7 +228,7 @@ function getBase64Image(img) {
                     'email': 'sahil@wingshandy.com',
                     'name': 'Sahil',
                     'type': 'to'
-            }
+                  }
             ],
                   'autotext': 'true',
                   'subject': 'Receipt',
@@ -235,7 +237,19 @@ function getBase64Image(img) {
               }
             }).done(function(response) {
               alert("Email Sent"); 
+
       });
+      $.get("http://s250217848.online.de/api/public/index.php/article/all?token="+token, function( data ) {
+        $("#select_phones").html('');
+        $("#selected_phones").html('');
+        ARTICLES = data["article"]    
+        $.each(ARTICLES, function( i, article ) {
+        if (!$("#manufacturer_select option[value='" + article["manufacturer"] + "']").length)
+          $("#manufacturer_select").append($("<option />").val(article["manufacturer"]).text(article["manufacturer"]));
+        }); 
+        populateSelectPhones(ARTICLES)
+    
+}); 
     }
   }
 
@@ -259,30 +273,4 @@ function getBase64Image(img) {
     var bb = new Blob([ab], { "type": mimeString });
     return bb;
   }
-  function populateSelectPhones(articles)
-  {
-    for (var i = articles.length - 1; i >= 0; i--) {
-      //console.log(articles[i]["manufacturer"])
-      var tr = "<tr>"+
-      "<td>"+articles[i]["model"]+"</td>"+
-      "<td>"+articles[i]["price"]+"</td>"+      
-      "<td>"+articles[i]["imei"]+"</td>"+
-      "<td><button onclick='return addToCart("+JSON.stringify(articles[i])+")'><span class='glyphicon glyphicon-plus'></span>Add</button></td>"+
-      "</tr>"
-
-      $("#select_phones").append(tr);
-    }
-  }
-  function today(){
-    var today = new Date();
-    var dd = today.getDate();
-  var mm = today.getMonth()+1; //January is 0!
-  var yyyy = today.getFullYear();
-  if(dd<10){
-    dd='0'+dd
-  } 
-  if(mm<10){
-    mm='0'+mm
-  } 
-  return dd+'/'+mm+'/'+yyyy;
-}
+  

@@ -96,12 +96,12 @@ $( "#ksubmit" ).click(function() {
   cust_info["imei"] = document.getElementById("imei").value
   cust_info["price"] = document.getElementById("price").value
   
-/*  cust_info["customer_name"] = "test"
-  cust_info["article_name"] =  "test"
-  cust_info["manufacturer"] =  "test"
+  cust_info["customer_name"] = "bikram"
+  cust_info["article_name"] =  "s5"
+  cust_info["manufacturer"] =  "samsung"
   cust_info["imei"] = "12345"
   cust_info["price"] = "345"
-*/  
+  
   if(document.getElementById("tax").checked)
   {
     cust_info["tax"] = 1
@@ -237,7 +237,19 @@ function getBase64Image(img) {
               }
             }).done(function(response) {
               alert("Email Sent"); 
+
       });
+      $.get("http://s250217848.online.de/api/public/index.php/article/all?token="+token, function( data ) {
+        $("#select_phones").html('');
+        $("#selected_phones").html('');
+        ARTICLES = data["article"]    
+        $.each(ARTICLES, function( i, article ) {
+        if (!$("#manufacturer_select option[value='" + article["manufacturer"] + "']").length)
+          $("#manufacturer_select").append($("<option />").val(article["manufacturer"]).text(article["manufacturer"]));
+        }); 
+        populateSelectPhones(ARTICLES)
+    
+}); 
     }
   }
 

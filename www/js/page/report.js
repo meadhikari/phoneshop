@@ -4,9 +4,9 @@ $( "#view" ).click(function() {
   data["from_date"] = $('#from')[0].value
   data["to_date"] = $('#to')[0].value
   data["type"] = $("#status").find('option:selected').attr('id')
-  /*data["from_date"] = "2015-01-03"
+  data["from_date"] = "2015-01-03"
   data["to_date"] = "2015-03-18"
-  data["type"] = "default"*/
+  data["type"] = "default"
   data["token"] = token
   //spinnerplugin.show();
   $.post('http://s250217848.online.de/api/public/index.php/report/all', data, 
@@ -21,15 +21,21 @@ $( "#view" ).click(function() {
         for (var i = transactions.length - 1; i >= 0; i--) {
           var articles = returnedData.transactions[i]["articles"]
 
-          console.log(articles)
+          
           for (var j = articles.length - 1; j >= 0; j--) {
+            
             var article_name = articles[j]["article_name"]
             var cost = parseFloat(articles[j]["price"])
-            cost_sum = cost_sum + cost
             var tax = parseFloat(articles[j]["tax"])
-            tax_sum = tax_sum + tax;
-            var net = cost + tax
-            if(transactions[i].transaction_type === "sell")
+            
+            if (articles[j]["refund"] !== "yes")
+            {
+              cost_sum = cost_sum + cost
+              tax_sum = tax_sum + tax;
+              var net = cost + tax
+            }
+            
+            if(transactions[i].transaction_type === "buy" || articles[j]["refund"] === "non refundable")
             {
               var tr = "<tr>"+
               "<td>"+article_name+"</td>"+
@@ -41,25 +47,25 @@ $( "#view" ).click(function() {
             }
             else if(articles[j]["refund"] === "no")
             {
-              console.log(articles[j]["refund"])
+              //console.log(transactions[i])
               var tr = "<tr>"+
               "<td>"+article_name+"</td>"+
               "<td>"+cost+"</td>"+
               "<td>"+tax+"</td>"+
               "<td>"+net+"</td>"+
-              "<td><button id="+"article_name[i]['id']"+">Refund</button></td>"+              
+              "<td><button class='refund' id="+articles[j]['article_id']+">Refund</button></td>"+              
               "</tr>"
               $("#tbody").append(tr);   
             }
             else
             {
-              console.log(articles[j]["refund"])
+              //console.log(articles[j]["refund"])
               var tr = "<tr>"+
               "<td>"+article_name+"</td>"+
               "<td>"+cost+"</td>"+
               "<td>"+tax+"</td>"+
               "<td>"+net+"</td>"+
-              "<td>Refunded</td>"+              
+              "<td><button disabled class='refund' id="+articles[j]['article_id']+">Refunded</button></td>"+              
               "</tr>"
               $("#tbody").append(tr);   
             }
@@ -77,6 +83,30 @@ $( "#view" ).click(function() {
         "</tr>"
 
         $("#tbody").append(sum_tr);
+        $(".refund").click(function(){ 
+            
+             var current = this
+
+             $.post('http://s250217848.online.de/api/public/index.php/transaction/refund', {"item":this.id}, 
+                  function(returnedData){
+                    if (returnedData.statusCode !== 200)
+                    {
+            
+                      for (var key in returnedData.errors) {
+                        alert(returnedData.errors[key])
+                        return                             
+                      }                      
+                    }
+                    else
+                    {
+                      alert("Item refunded")
+                      $(this).attr("disabled", true);
+                      current.innerHTML = "Refunded"
+                    }
+
+
+              });
+          });
 
       }
       else
@@ -88,6 +118,7 @@ $( "#view" ).click(function() {
     }); 
 
 });
+
 $( "#print" ).click(function() {
   $("#tbody").html('');
   data = {}

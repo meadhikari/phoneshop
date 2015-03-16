@@ -116,6 +116,7 @@
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/js/template.js \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/js/bootstrap.js \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/js/jquery.printPage.js \
+/home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/js/freeformatter-output \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/js/bootstrap-toggle.js \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/js/phonegap.sublime-workspace \
 /home/adhikari/Dropbox/Public/projects/anjani_dai/phonegap/phoneshop/platforms/android/assets/www/js/jquery-image-blob.min.js \

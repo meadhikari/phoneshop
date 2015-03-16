@@ -28,14 +28,15 @@ function removeFromCart(index)
 }
 function addToCart(article)
 {
+	
 	var price = prompt("Selling Price", "");
 	if (price)
 	{
 		console.log(article)
-		SELLING_PHONES.push({"id":article.id,"price":price,"model":article.model})
+		SELLING_PHONES.push({"id":article.id,"price":price,"name":article.name})
 	var tr = "<tr id=selectedRow"+article.id+">"+
 	"<td>"+article["manufacturer"]+"</td>"+
-	"<td>"+article["model"]+"</td>"+
+	"<td>"+article["name"]+"</td>"+
 	"<td>"+article["imei"]+"</td>"+
 	"<td>"+price+"</td>"+
 	"<td><button onclick='return removeFromCart("+JSON.stringify(article.id)+")'><span class='glyphicon glyphicon-remove'></span>Remove</button></td>"+
@@ -88,7 +89,7 @@ $.get("http://s250217848.online.de/api/public/index.php/article/all?token="+toke
 		//
 		populateSelectPhones(ARTICLES)
 		
-	}); 
+}); 
 
 	
 	$('.other_price').on('input',function(e){
@@ -190,6 +191,8 @@ $("#rprint").click(function(){
 		var other_names = ($(".other_name").map(function(){return $(this).val();}).get()).filter(Boolean);
 		var other_prices = ($(".other_price").map(function(){return $(this).val();}).get()).filter(Boolean);
 		var other_quantities = ($(".other_quantity").map(function(){return $(this).val();}).get()).filter(Boolean);
+		var tax_values = ($(".tax_value").map(function(){return $(this).val();}).get()).filter(Boolean);
+
 
 		others = []
 		other_sum = 0;
@@ -198,6 +201,7 @@ $("#rprint").click(function(){
 			other["name"] = other_names[i]
 			other["price"] = parseFloat(other_prices[i]) * parseFloat(other_quantities[i])
 			other["qty"] = other_quantities[i]
+			other["tax"] = tax_values[i]
 			other_sum = other_sum + parseFloat(other_prices[i])
 			others.push(other)
 		};
@@ -232,22 +236,6 @@ $("#rprint").click(function(){
 
 $( "#rsubmit" ).click(function() {
 	cust_info = {}
-	if(rpicture1_data)
-	{
-		cust_info["image1"] = "data:image/jpeg;base64,"+rpicture1_data
-	}
-	else
-	{
-		delete cust_info["image1"]	
-	}
-	if(rpicture2_data)
-	{
-		cust_info["image2"] = "data:image/jpeg;base64,"+rpicture2_data
-	}
-	else
-	{
-		delete cust_info["image2"]	
-	}
 	cust_info["token"] = token
 	cust_info["transaction_type"] = "sell"
 
@@ -287,13 +275,15 @@ $( "#rsubmit" ).click(function() {
 			console.log(returnedData)
 			//spinnerplugin.hide(); 
 					//alert(JSON.stringify(cust_info))
-					//alert(JSON.stringify(returnedData))
+					
 					if (returnedData.statusCode !== 200)
 					{
+						
 						for (var key in returnedData.errors) {
 							alert(returnedData.errors[key])
 							return                             
 						}
+						
 					}
 					else
 					{
@@ -344,31 +334,30 @@ $( "#rsubmit" ).click(function() {
 });
 
 function populateSelectPhones(articles)
-{
-	for (var i = articles.length - 1; i >= 0; i--) {
-			//console.log(articles[i]["manufacturer"])
-			var tr = "<tr>"+
-			"<td>"+articles[i]["model"]+"</td>"+
-			"<td>"+articles[i]["price"]+"</td>"+			
-			"<td>"+articles[i]["imei"]+"</td>"+
-			"<td><button onclick='return addToCart("+JSON.stringify(articles[i])+")'><span class='glyphicon glyphicon-plus'></span>Add</button></td>"+
-			"</tr>"
+  {
+    for (var i = articles.length - 1; i >= 0; i--) {
+      //console.log(articles[i]["manufacturer"])
+      var tr = "<tr>"+
+      "<td>"+articles[i]["name"]+"</td>"+
+      "<td>"+articles[i]["price"]+"</td>"+      
+      "<td>"+articles[i]["imei"]+"</td>"+
+      "<td><button onclick='return addToCart("+JSON.stringify(articles[i])+")'><span class='glyphicon glyphicon-plus'></span>Add</button></td>"+
+      "</tr>"
 
-			$("#select_phones").append(tr);
-		}
-	}
-	function today(){
-		var today = new Date();
-		var dd = today.getDate();
-	var mm = today.getMonth()+1; //January is 0!
-	var yyyy = today.getFullYear();
-	if(dd<10){
-		dd='0'+dd
-	} 
-	if(mm<10){
-		mm='0'+mm
-	} 
-	return dd+'/'+mm+'/'+yyyy;
+      $("#select_phones").append(tr);
+    }
+  }
+  function today(){
+    var today = new Date();
+    var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is 0!
+  var yyyy = today.getFullYear();
+  if(dd<10){
+    dd='0'+dd
+  } 
+  if(mm<10){
+    mm='0'+mm
+  } 
+  return dd+'/'+mm+'/'+yyyy;
 }
-
 
