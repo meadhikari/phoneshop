@@ -96,12 +96,12 @@ $( "#ksubmit" ).click(function() {
   cust_info["imei"] = document.getElementById("imei").value
   cust_info["price"] = document.getElementById("price").value
   
-  cust_info["customer_name"] = "bikram"
+  /*cust_info["customer_name"] = "bikram"
   cust_info["article_name"] =  "s5"
   cust_info["manufacturer"] =  "samsung"
   cust_info["imei"] = "12345"
   cust_info["price"] = "345"
-  
+  */
   if(document.getElementById("tax").checked)
   {
     cust_info["tax"] = 1
