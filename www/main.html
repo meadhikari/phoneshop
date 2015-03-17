@@ -275,15 +275,15 @@
 
 </body>
 <script type="text/javascript">
-function getUrlVars() {
+/*function getUrlVars() {
     var vars = {};
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
         vars[key] = value;
     });
     return vars;
-}
+}*/
 
-  var token = getUrlVars()["token"];
+  var token = localStorage.getItem("token") //getUrlVars()["token"];
 ;
 </script>
 <script type="text/javascript" src="cordova.js"></script>

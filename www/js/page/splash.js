@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-  localStorage.clear(); // comment this in production
+  //localStorage.clear(); // comment this in production
   if (localStorage.getItem("token"))
   {
     $.post('http://s250217848.online.de/api/public/index.php/login/tokenverify', { token: localStorage.getItem("token")}, 
