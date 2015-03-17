@@ -4,9 +4,9 @@ $( "#view" ).click(function() {
   data["from_date"] = $('#from')[0].value
   data["to_date"] = $('#to')[0].value
   data["type"] = $("#status").find('option:selected').attr('id')
-  data["from_date"] = "2015-01-03"
+  /*data["from_date"] = "2015-01-03"
   data["to_date"] = "2015-03-18"
-  data["type"] = "default"
+  data["type"] = "default"*/
   data["token"] = token
   //spinnerplugin.show();
   $.post('http://s250217848.online.de/api/public/index.php/report/all', data, 

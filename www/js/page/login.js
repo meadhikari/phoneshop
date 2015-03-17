@@ -13,7 +13,7 @@ $(document ).ready(function() {
 
 	function loginCheck (username, password) {        
     //spinnerplugin.show();
-    $.post('http://s250217848.online.de/api/public/index.php/login/gettoken', { email: username, password : password}, 
+    $.post('http://s250217848.online.de/api/public/index.php/login/gettoken', { email: username+"@something.com", password : password}, 
     function(returnedData){
          //spinnerplugin.hide(); 
          console.log("Yes")
