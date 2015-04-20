@@ -17,13 +17,19 @@
    <div class="home-content">
     <div role="tabpanel">
 
-      <!-- Nav tabs -->
+      <div class="app-header">
+      	<div class="top-bar">
+      		<h1>Kaufvertrag</h1>	
+      		<span class="top-add-icon glyphicon glyphicon-plus" data-toggle="modal" data-target=""></span>
+      	</div>
+      	<!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#buy" aria-controls="buy" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
         <li role="presentation"><a href="#sell" aria-controls="sell" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span></a></li>
         <li role="presentation"><a href="#offer" aria-controls="offer" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span></a></li>
         <li role="presentation"><a href="#report" aria-controls="report" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span></a></li>
       </ul>
+      </div>
 
       <aside id="menu" class="left">
         <ul id="buy-aside">
@@ -44,233 +50,351 @@
       <!-- Tab panes -->
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="buy">
-         <div class="buy-content">
-          <h4 id="customer">Customer Details</h4>
-          <div class="form-group required">
-           <div class="form-row">
-            <label class="control-label">Name:</label>
-            <input type="text" class="app-form-control" placeholder="Customer Name" id="customer_name">
-          </div>
-          <div class="form-row id-images">
-            <label class="control-label">ID:</label>
-            <img src="images/camera.jpg" id="kpicture1">
-            <img src="images/camera.jpg" id="kpicture2">
-          </div>
-        </div>
-        <h4 id="phone">Phone Details</h4>
-        <div class="form-group required">         
-         <div class="form-group" id="phone_detail">         
-          <div class="form-row">
-           <label class="control-label">Name:</label>
-           <input type="text" class="app-form-control" placeholder="Phone Name" id="article_name">
-         </div>
-         <div class="form-row">
-           <label class="control-label">Manufacturer:</label>
-           <input type="text" class="app-form-control" placeholder="Manufacturer" id="manufacturer">
-         </div>
-         <div class="form-row has-feedback has-feedback-left">
-          <label class="control-label">IMEI:</label>
-          <input type="text" class="app-form-control" placeholder="IMEI" id="imei">
-          <i class="glyphicon glyphicon-barcode" id="barcode"></i>
-          <audio id="successSound" src="sound/ta_da.mp3" type="audio/mpeg" ></audio>
-        </div>    
-        <div class="form-row">
-         <label class="control-label">Price:</label>
-         <input type="text" class="app-form-control" placeholder="Price" id="price">
-       </div>
-       
-          <div class="form-row">
-            <label>MwSt:(0% or 19%)</label>
-            <input type="checkbox" data-toggle="toggle" id="tax" placeholder="mwsp">
-          </div>
-          
-     </div>
-   </div>
-   <div class="clear" id="signature">
-     <a href="#" class="clear-btn" id="clear"><span class="glyphicon glyphicon-remove"></span></a>
-   </div>
-   <div class="signature"></div>
-   <div class="button-area">
-     <input type="submit" value="SUBMIT" id="ksubmit">
-   </div>
- </div>
-</div>
-<div role="tabpanel" class="tab-pane" id="sell">
-  <div class="sell-content">
-   <h4 id="customer-sell">Customer Details</h4>
-   <div id="customer_detail">
-     <div class="form-group">
-      <div class="form-row">
-       <label>Name:</label>
-       <input type="text" class="app-form-control buyer_name" placeholder="Customer Name" id="customer_name" >
-     </div>
-     <div class="form-row">
-       <label>City/Post Code:</label>
-       <input type="text" class="app-form-control" placeholder="City" id="city">
-     </div>
-     <div class="form-row">
-       <label>Street/Number:</label>
-       <input type="text" class="app-form-control" placeholder="Street" id="street">
-     </div>     
-     <div class="form-row">
-       <label>Country:</label>
-       <input type="text" class="app-form-control" placeholder="Country" id="country">
-     </div>
-     <div class="form-row">
-       <label>Email:</label>
-       <input type="text" class="app-form-control" placeholder="Email" id="email" >
-     </div>
-     <div class="form-row">
-       <label>Phone:</label>
-       <input type="text" class="app-form-control" placeholder="Phone" id="phone">
-     </div>
-     
-   </div>
- </div>
- <h4 id="phone-sell">Select Phone(s):</h4>
- <div class="form-group">
- <div class="form-row">
-       
-       <select id="manufacturer_select">
-         <option value="0">Manufacturer</option>
-       </select>
-     </div>
-  <p>
-    <div class="table-responsive report-table">
-     <table id="phones" class="display" cellspacing="0" width="100%">
-      <thead>
-        <tr>
-          <th>Model</th>
-          <th>Price</th>          
-          <th>IMEI</th>
-          <th>Add</th>
-        </tr>
-      </thead>
-      <tbody id="select_phones">
+         	<div class="buy-panel">
+         		<div class="item-row">
+	         		<div class="item-content">
+		         		<p class="item-price">$30.00 <span>Unbezahlt</span></p>
+		         		<h2>Joheph Karrote</h2>
+		         		<p class="item-name">Demo</p>
+		         		<p class="item-date">2015/12/12</p>
+	         		</div>
+	         		<div class="item-overlay">
+	         			<a href="" class="item-email">Email</a>
+	         			<a href="" class="item-print">Print</a>
+	         		</div>
+	         	</div>
+	         	<div class="item-row">
+	         		<div class="item-content">
+		         		<p class="item-price">$30.00 <span>Unbezahlt</span></p>
+		         		<h2>Joheph Karrote</h2>
+		         		<p class="item-name">Demo</p>
+		         		<p class="item-date">2015/12/12</p>
+	         		</div>
+	         		<div class="item-overlay">
+	         			<a href="" class="item-email">Email</a>
+	         			<a href="" class="item-print">Print</a>
+	         		</div>
+	         	</div>
+	         	<div class="item-row">
+	         		<div class="item-content">
+		         		<p class="item-price">$30.00 <span>Unbezahlt</span></p>
+		         		<h2>Joheph Karrote</h2>
+		         		<p class="item-name">Demo</p>
+		         		<p class="item-date">2015/12/12</p>
+	         		</div>
+	         		<div class="item-overlay">
+	         			<a href="" class="item-email">Email</a>
+	         			<a href="" class="item-print">Print</a>
+	         		</div>
+	         	</div>
+	         	<div class="item-row">
+	         		<div class="item-content">
+		         		<p class="item-price">$30.00 <span>Unbezahlt</span></p>
+		         		<h2>Joheph Karrote</h2>
+		         		<p class="item-name">Demo</p>
+		         		<p class="item-date">2015/12/12</p>
+	         		</div>
+	         		<div class="item-overlay">
+	         			<a href="" class="item-email">Email</a>
+	         			<a href="" class="item-print">Print</a>
+	         		</div>
+	         	</div>
+	         	<div class="item-row">
+	         		<div class="item-content">
+		         		<p class="item-price">$30.00 <span>Unbezahlt</span></p>
+		         		<h2>Joheph Karrote</h2>
+		         		<p class="item-name">Demo</p>
+		         		<p class="item-date">2015/12/12</p>
+	         		</div>
+	         		<div class="item-overlay">
+	         			<a href="" class="item-email">Email</a>
+	         			<a href="" class="item-print">Print</a>
+	         		</div>
+	         	</div>
+         	</div>
+		</div>
+		<div role="tabpanel" class="tab-pane" id="sell">
+		  	<div class="sell-panel">
+         		<div class="item-row">
+	         		<p class="item-price">$30.00 <span>Unbezahlt</span></p>
+	         		<h2>Joheph Karrote</h2>
+	         		<p class="item-name">Demo</p>
+	         		<p class="item-date">2015/12/12</p>
+	         	</div>
+	         	<div class="item-row">
+	         		<p class="item-price">$30.00 <span>Unbezahlt</span></p>
+	         		<h2>Joheph Karrote</h2>
+	         		<p class="item-name">Demo</p>
+	         		<p class="item-date">2015/12/12</p>
+	         	</div>
+	         	<div class="item-row">
+	         		<p class="item-price">$30.00 <span>Unbezahlt</span></p>
+	         		<h2>Joheph Karrote</h2>
+	         		<p class="item-name">Demo</p>
+	         		<p class="item-date">2015/12/12</p>
+	         	</div>
+	         	<div class="item-row">
+	         		<p class="item-price">$30.00 <span>Unbezahlt</span></p>
+	         		<h2>Joheph Karrote</h2>
+	         		<p class="item-name">Demo</p>
+	         		<p class="item-date">2015/12/12</p>
+	         	</div>
+         	</div>
+		</div>
+		<div role="tabpanel" class="tab-pane" id="offer">
+		 <div class="offer-content" id="offer_tab">
 
+		 </div>
+		</div>
+		<div role="tabpanel" class="tab-pane" id="report">
+		 <div class="report-content">
+		  <div class="report-filter">
+		   <h4>Filter Report</h4>
+		   <div class="form-group">
 
-      </tbody>
-    </table>
-  </div>
-</p>
+		     <div class="form-row has-feedback has-feedback-left">
+		       <label>From:</label>
+		       <input type="date" class="app-form-control" Placeholder="From" id="from">
+		       <i class="glyphicon glyphicon-calendar"></i>
+
+		     </div>
+		     <div class="form-row has-feedback has-feedback-left" >
+		       <label>To:</label>
+		       <input type="date" class="app-form-control" Placeholder="To" id="to">
+		       <i class="glyphicon glyphicon-calendar"></i>
+		     </div>
+		     <div class="form-row">
+		       <label>Status:</label>
+		       <select class="app-select" id="status">
+		        <option id="default">Default</option>
+		        <option id="sell">Sell</option>
+		        <option id="buy">Buy</option>
+		      </select>
+		    </div>
+		  </div>
+		  <div class="button-area">
+		    <a href="#" id="view">View</a>
+		    <a href="#" id="print">Print</a>
+		  </div>
+		  <div class="report-table">
+		    <table width="100%" cellspacing="0" cellpadding="10" border="0" align="center">
+		     <thead>
+		      <tr>
+		       <th>Item</th>
+		       <th>Net</th>
+		       <th>Tax</th>
+		       <th>Gross</th>
+		       <th>Refund</th>
+		     </tr>
+		   </thead>
+		   <tbody id="tbody">
+		   </tbody>
+		 </table>
+		</div>
+		</div>
+
+</div>
 </div>
 
-<h4>Selected Phone(s):</h4>
-<div class="no-form-group">
- <div class="table-responsive report-table">
-  <table id="phones" cellspacing="0" cellpadding="10" class="table-striped" width="100%">
-    <thead>
-      <tr>
-        <th>Manufacturer</th>
-        <th>Model</th>
-        <th>IMEI</th>
-        <th>Price</th>
-        <th>Remove</th>
-      </tr>
-    </thead>
-    <tbody id="selected_phones">
-
-    </tbody>
-  </table>
-</div>
-</div>
-
-
-
-<h4 id="others">Other Details</h4>
-<div id="other_detail_container">
-<div class="other_detail" id="first_other">
- <div class="form-group">         
-  <div class="form-row">
-   <label>Name:</label>
-   <input type="text" class="app-form-control other_name" placeholder="Name">
- </div>
- <div class="form-row">
-   <label>Price:</label>
-   <input type="text" class="app-form-control other_price" placeholder="Price">
- </div>
- <div class="form-row">
-   <label>Quantity:</label>
-   <input type="text" class="app-form-control other_quantity" placeholder="Quantity" value="1">
- </div>
- <div class="form-row">
-    <label>MwSt:(0% or 19%)</label>
-    <input type="checkbox" data-toggle="toggle" class="other_tax" placeholder="mwsp">
-  </div>
- <div class="form-row">
-      <label>Tax:</label>
-      <input type="text" class="app-form-control tax_value" placeholder="Tax">
-</div>
-          
-</div>
-</div>
-</div>
-<div class="add">
- <a href="#" class="add-btn"><span class="glyphicon glyphicon-plus" id="add_other"></span></a>
-</div>
-<!-- <div class="signature"></div> -->
-<div id="rreport">
-    
-</div>
-<div class="button-area">
- <input type="submit" value="SUBMIT" id="rsubmit">
- 
-</div>
-</div>
-</div>
-<div role="tabpanel" class="tab-pane" id="offer">
- <div class="offer-content" id="offer_tab">
-
- </div>
-</div>
-<div role="tabpanel" class="tab-pane" id="report">
- <div class="report-content">
-  <div class="report-filter">
-   <h4>Filter Report</h4>
-   <div class="form-group">
-
-     <div class="form-row has-feedback has-feedback-left">
-       <label>From:</label>
-       <input type="date" class="app-form-control" Placeholder="From" id="from">
-       <i class="glyphicon glyphicon-calendar"></i>
-
-     </div>
-     <div class="form-row has-feedback has-feedback-left" >
-       <label>To:</label>
-       <input type="date" class="app-form-control" Placeholder="To" id="to">
-       <i class="glyphicon glyphicon-calendar"></i>
-     </div>
-     <div class="form-row">
-       <label>Status:</label>
-       <select class="app-select" id="status">
-        <option id="default">Default</option>
-        <option id="sell">Sell</option>
-        <option id="buy">Buy</option>
-      </select>
+<!-- Modal content for buy -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Customer Details</h4>
+      </div>
+      <div class="modal-body">
+	        <div class="buy-content">
+	          <div class="form-group required">
+	           <div class="form-row">
+	            <label class="control-label">Name:</label>
+	            <input type="text" class="app-form-control" placeholder="Customer Name" id="customer_name">
+	          </div>
+	          <div class="form-row id-images">
+	            <label class="control-label">ID:</label>
+	            <img src="images/camera.jpg" id="kpicture1">
+	            <img src="images/camera.jpg" id="kpicture2">
+	          </div>
+	        </div>
+	        <h4 id="phone">Phone Details</h4>
+	        <div class="required">         
+	         <div class="form-group" id="phone_detail">         
+	          <div class="form-row">
+	           <label class="control-label">Name:</label>
+	           <input type="text" class="app-form-control" placeholder="Phone Name" id="article_name">
+	         </div>
+	         <div class="form-row">
+	           <label class="control-label">Manufacturer:</label>
+	           <input type="text" class="app-form-control" placeholder="Manufacturer" id="manufacturer">
+	         </div>
+	         <div class="form-row has-feedback has-feedback-left">
+	          <label class="control-label">IMEI:</label>
+	          <input type="text" class="app-form-control" placeholder="IMEI" id="imei">
+	          <i class="glyphicon glyphicon-barcode" id="barcode"></i>
+	          <audio id="successSound" src="sound/ta_da.mp3" type="audio/mpeg" ></audio>
+	        </div>    
+	        <div class="form-row">
+	         <label class="control-label">Price:</label>
+	         <input type="text" class="app-form-control" placeholder="Price" id="price">
+	       </div>
+	       
+	          <div class="form-row">
+	            <label>MwSt:(0% or 19%)</label>
+	            <input type="checkbox" data-toggle="toggle" id="tax" placeholder="mwsp">
+	          </div>
+	          
+		     </div>
+		   </div>
+		   <div class="clear" id="signature">
+		     <a href="#" class="clear-btn" id="clear"><span class="glyphicon glyphicon-remove"></span></a>
+		   </div>
+		   <div class="signature"></div>
+		   <div class="button-area">
+		     <input type="submit" value="SUBMIT" id="ksubmit">
+		   </div>
+		 </div>
+      </div>
     </div>
   </div>
-  <div class="button-area">
-    <a href="#" id="view">View</a>
-    <a href="#" id="print">Print</a>
-  </div>
-  <div class="report-table">
-    <table width="100%" cellspacing="0" cellpadding="10" border="0" align="center">
-     <thead>
-      <tr>
-       <th>Item</th>
-       <th>Net</th>
-       <th>Tax</th>
-       <th>Gross</th>
-       <th>Refund</th>
-     </tr>
-   </thead>
-   <tbody id="tbody">
-   </tbody>
- </table>
-</div>
 </div>
 
-</div>
+<!-- Modal for sell page -->
+<div class="modal fade" id="mySellModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Customer Details</h4>
+      </div>
+      <div class="modal-body">
+        <div class="sell-content">
+			   <div id="customer_detail">
+			     <div class="form-group">
+			      <div class="form-row">
+			       <label>Name:</label>
+			       <input type="text" class="app-form-control buyer_name" placeholder="Customer Name" id="customer_name" >
+			     </div>
+			     <div class="form-row">
+			       <label>City/Post Code:</label>
+			       <input type="text" class="app-form-control" placeholder="City" id="city">
+			     </div>
+			     <div class="form-row">
+			       <label>Street/Number:</label>
+			       <input type="text" class="app-form-control" placeholder="Street" id="street">
+			     </div>     
+			     <div class="form-row">
+			       <label>Country:</label>
+			       <input type="text" class="app-form-control" placeholder="Country" id="country">
+			     </div>
+			     <div class="form-row">
+			       <label>Email:</label>
+			       <input type="text" class="app-form-control" placeholder="Email" id="email" >
+			     </div>
+			     <div class="form-row">
+			       <label>Phone:</label>
+			       <input type="text" class="app-form-control" placeholder="Phone" id="phone">
+			     </div>
+			     
+			   </div>
+			 </div>
+			 <h4 id="phone-sell">Select Phone(s):</h4>
+			 <div class="form-group">
+			 <div class="form-row">
+			       
+			       <select id="manufacturer_select">
+			         <option value="0">Manufacturer</option>
+			       </select>
+			     </div>
+			  <p>
+			    <div class="table-responsive report-table">
+			     <table id="phones" class="display" cellspacing="0" width="100%">
+			      <thead>
+			        <tr>
+			          <th>Model</th>
+			          <th>Price</th>          
+			          <th>IMEI</th>
+			          <th>Add</th>
+			        </tr>
+			      </thead>
+			      <tbody id="select_phones">
+
+
+			      </tbody>
+			    </table>
+			  </div>
+			</p>
+			</div>
+
+			<h4>Selected Phone(s):</h4>
+			<div class="no-form-group">
+			 <div class="table-responsive report-table">
+			  <table id="phones" cellspacing="0" cellpadding="10" class="table-striped" width="100%">
+			    <thead>
+			      <tr>
+			        <th>Manufacturer</th>
+			        <th>Model</th>
+			        <th>IMEI</th>
+			        <th>Price</th>
+			        <th>Remove</th>
+			      </tr>
+			    </thead>
+			    <tbody id="selected_phones">
+
+			    </tbody>
+			  </table>
+			</div>
+			</div>
+
+
+
+			<h4 id="others">Other Details</h4>
+			<div id="other_detail_container">
+			<div class="other_detail" id="first_other">
+			 <div class="form-group">         
+			  <div class="form-row">
+			   <label>Name:</label>
+			   <input type="text" class="app-form-control other_name" placeholder="Name">
+			 </div>
+			 <div class="form-row">
+			   <label>Price:</label>
+			   <input type="text" class="app-form-control other_price" placeholder="Price">
+			 </div>
+			 <div class="form-row">
+			   <label>Quantity:</label>
+			   <input type="text" class="app-form-control other_quantity" placeholder="Quantity" value="1">
+			 </div>
+			 <div class="form-row">
+			    <label>MwSt:(0% or 19%)</label>
+			    <input type="checkbox" data-toggle="toggle" class="other_tax" placeholder="mwsp">
+			  </div>
+			 <div class="form-row">
+			      <label>Tax:</label>
+			      <input type="text" class="app-form-control tax_value" placeholder="Tax">
+			</div>
+			          
+			</div>
+			</div>
+			</div>
+			<div class="add">
+			 <a href="#" class="add-btn"><span class="glyphicon glyphicon-plus" id="add_other"></span></a>
+			</div>
+			<!-- <div class="signature"></div> -->
+			<div id="rreport">
+			    
+			</div>
+			<div class="button-area">
+			 <input type="submit" value="SUBMIT" id="rsubmit">
+			 
+			</div>
+			</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 </body>
@@ -322,6 +446,14 @@
           $('#showmenu').show();
         }
       });
+
+    $('.top-add-icon').click(function(){
+    	if($('.nav-tabs li:nth-child(1)').attr('class') == 'active'){
+    		$('#myModal').modal('show');
+    	}else if($('.nav-tabs li:nth-child(2)').attr('class') == 'active'){
+    		$('#mySellModal').modal('show');
+    	}
+    });
     
   });
 </script>
@@ -348,6 +480,24 @@
     return false;
   });
 
+</script>
+
+<script type="text/javascript">
+//js for print and email buttons on item lists
+	$( document).ready(function() {
+		$('.item-content').click(function(){
+			var thisdiv = $(this);
+			$('.item-overlay').not(thisdiv.next()).hide().removeClass('isShown');
+			$('.item-content').css("-webkit-filter", "blur(0px)");
+			thisdiv.next().toggle();
+			thisdiv.next().toggleClass('isShown');
+			thisdiv.css("-webkit-filter", "blur(20px)");
+
+			if(!thisdiv.next().hasClass('isShown')){
+				thisdiv.css("-webkit-filter", "blur(0px)");
+			}
+		});
+	});
 </script>
 
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>

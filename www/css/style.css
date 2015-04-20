@@ -110,8 +110,9 @@ li a span{
 	min-height: 100%;
 	background-repeat: no-repeat;
 	background-size: cover;
-	width: calc(100% - 48px);
-	margin-left: 48px;
+	width: 100%;
+/*	width: calc(100% - 48px);
+	margin-left: 48px;*/
 }
 .home-wrapper{
 	background-color: #F8F8F8;
@@ -155,6 +156,7 @@ li a span{
 .tab-content{
 	background: #F8F8F8;
 	padding: 10px;
+	padding-top: 40px;
 }
 .tab-content h4{
 	padding-left: 10px;
@@ -428,18 +430,116 @@ li a span{
 	box-shadow: none !important;
 }
 #showmenu{
-color: #fff !important;
+color: #FFE9E7 !important;
 }
-.nav-tabs{
-position: fixed;
-min-height: 0 !important;
-top: 0;
-
+.app-header{
+	position: fixed;
+	min-height: 0 !important;
+	top: 0;
+	width: 100%;
+	z-index: 15;
 }
- .home-wrapper{
+.top-bar{
+	height: 45px;
+	background: #DF1D15;
+	text-align: center;
+  	padding: 13px;
+}
+.top-bar h1{
+	display: inline;
+	color: #FFE9E7;
+	font-size: 17px;
+}
+.home-wrapper{
 padding-top: 50px;
 }
 
 i.glyphicon-barcode {
     font-size: 2em;
+}
+.top-add-icon{
+	position: absolute;
+    right: 0;
+	padding: 7px;
+	border: 2px solid #FFE9E7;
+	font-size: 12px;
+	  color: #FFE9E7;
+	border-radius: 21px;
+	margin: 7px 14px;
+	cursor: pointer;
+}
+#menu{
+	z-index: 20 !important;
+}
+.item-row{
+	border-bottom: 1px solid #8D8D8D;
+  margin: 0 -10px;
+    position: relative;
+}
+.item-name{
+	  text-transform: uppercase;
+  margin: 0;
+  color: #454545;
+  font-size: 16px;
+}
+.item-row h2{
+	  font-size: 19px;
+  margin: 0px;
+}
+.item-price{
+	float: right;
+  font-size: 21px;
+  font-weight: bold;
+  color: #E1493F;
+  margin: 0;
+  padding: 6px;
+}
+.item-date{
+	margin:0;
+}
+.item-price span{
+	  display: block;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: normal;
+}
+.modal-header{
+	background: #DF1D15 !important;
+	color: #fff !important;
+}
+.item-overlay{
+	  position: absolute;
+  top: 0;
+  /*background: #fff;*/
+  bottom: 0;
+  /*left: 0;*/
+  right: 0;
+  /*transition: all 0.5s ease;*/
+}
+.item-content{
+	padding: 5px 10px;
+	/*transition: all 0.5s ease;*/
+	  /*-webkit-filter: blur(20px);*/
+}
+.item-overlay a{
+	float: right;
+	  display: inline-block;
+  /*border: 1px solid;*/
+  height: 100%;
+  vertical-align: middle;
+  padding: 25px;
+  cursor: pointer;
+  text-decoration: none;
+  /*transition: all 0.5s ease;*/
+}
+.item-print{
+	  margin-right: -3px;
+  background: #2D8DC8;
+  color: #fff !important;
+}
+.item-email{
+  background: #FCFCFC;
+}
+.item-overlay{
+	display: none;
 }
