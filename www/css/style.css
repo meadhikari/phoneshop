@@ -498,23 +498,23 @@ i.glyphicon-barcode {
 	margin:0;
 }
 .item-price span{
-	  display: block;
-  text-transform: uppercase;
-  font-size: 13px;
-  font-weight: normal;
+	display: block;
+	text-transform: uppercase;
+	font-size: 13px;
+	font-weight: normal;
 }
 .modal-header{
 	background: #DF1D15 !important;
 	color: #fff !important;
 }
 .item-overlay{
-	  position: absolute;
-  top: 0;
-  /*background: #fff;*/
-  bottom: 0;
-  /*left: 0;*/
-  right: 0;
-  /*transition: all 0.5s ease;*/
+	position: absolute;
+	top: 0;
+	/*background: #fff;*/
+	bottom: 0;
+	/*left: 0;*/
+	right: 0;
+	/*transition: all 0.5s ease;*/
 }
 .item-content{
 	padding: 5px 10px;
@@ -523,23 +523,39 @@ i.glyphicon-barcode {
 }
 .item-overlay a{
 	float: right;
-	  display: inline-block;
-  /*border: 1px solid;*/
-  height: 100%;
-  vertical-align: middle;
-  padding: 25px;
-  cursor: pointer;
-  text-decoration: none;
-  /*transition: all 0.5s ease;*/
+	display: inline-block;
+	/*border: 1px solid;*/
+	height: 100%;
+	vertical-align: middle;
+	padding: 25px;
+	cursor: pointer;
+	text-decoration: none;
+	/*transition: all 0.5s ease;*/
 }
 .item-print{
-	  margin-right: -3px;
-  background: #2D8DC8;
-  color: #fff !important;
+	margin-right: -3px;
+	background: #2D8DC8;
+	color: #fff !important;
 }
 .item-email{
-  background: #FCFCFC;
+	background: #FCFCFC;
 }
 .item-overlay{
 	display: none;
+}
+.modal-email{
+	padding: 8px;
+	width: 100%;
+}
+..modal-email:focus{
+	outline: 0;
+}
+.app-btn{
+	text-decoration: none;
+  background: #DF1D15;
+  border: 0;
+  padding: 10px 20px;
+  color: #fff !important;
+  display: inline-block;
+  margin: 10px 0;
 }

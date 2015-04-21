@@ -59,7 +59,7 @@
 		         		<p class="item-date">2015/12/12</p>
 	         		</div>
 	         		<div class="item-overlay">
-	         			<a href="" class="item-email">Email</a>
+	         			<a href="" class="item-email" data-toggle="modal" data-target="#myEmailModal">Email</a>
 	         			<a href="" class="item-print">Print</a>
 	         		</div>
 	         	</div>
@@ -71,7 +71,7 @@
 		         		<p class="item-date">2015/12/12</p>
 	         		</div>
 	         		<div class="item-overlay">
-	         			<a href="" class="item-email">Email</a>
+	         			<a href="" class="item-email" data-toggle="modal" data-target="#myEmailModal">Email</a>
 	         			<a href="" class="item-print">Print</a>
 	         		</div>
 	         	</div>
@@ -83,7 +83,7 @@
 		         		<p class="item-date">2015/12/12</p>
 	         		</div>
 	         		<div class="item-overlay">
-	         			<a href="" class="item-email">Email</a>
+	         			<a href="" class="item-email" data-toggle="modal" data-target="#myEmailModal">Email</a>
 	         			<a href="" class="item-print">Print</a>
 	         		</div>
 	         	</div>
@@ -95,7 +95,7 @@
 		         		<p class="item-date">2015/12/12</p>
 	         		</div>
 	         		<div class="item-overlay">
-	         			<a href="" class="item-email">Email</a>
+	         			<a href="" class="item-email" data-toggle="modal" data-target="#myEmailModal">Email</a>
 	         			<a href="" class="item-print">Print</a>
 	         		</div>
 	         	</div>
@@ -107,7 +107,7 @@
 		         		<p class="item-date">2015/12/12</p>
 	         		</div>
 	         		<div class="item-overlay">
-	         			<a href="" class="item-email">Email</a>
+	         			<a href="" class="item-email" data-toggle="modal" data-target="#myEmailModal">Email</a>
 	         			<a href="" class="item-print">Print</a>
 	         		</div>
 	         	</div>
@@ -258,6 +258,24 @@
     </div>
   </div>
 </div>
+
+
+<!-- Modal content for Email on item list -->
+<div class="modal fade" id="myEmailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Email Address</h4>
+      </div>
+      <div class="modal-body">
+	        <input class="modal-email" type="text" placeholder="Email Address">
+	        <input class="app-btn" type="submit" value="Submit">
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- Modal for sell page -->
 <div class="modal fade" id="mySellModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
