@@ -140,7 +140,7 @@ $( "#ksubmit" ).click(function() {
   }*/
   else
   {
-    
+
     var options = new FileUploadOptions();
     options.fileKey="image1";
     options.fileName=kpicture1_data
@@ -199,44 +199,44 @@ function getBase64Image(img) {
     if (returnedData.statusCode !== 200)
     {
       for (var key in returnedData.errors) {
-          alert(returnedData.errors[key])
-          return                             
+        alert(returnedData.errors[key])
+        return                             
       }
     }
     else
     {
       alert("Transaction Completed")
       $.ajax({
-            type: "POST",
-            url: "https://mandrillapp.com/api/1.0/messages/send.json",
-            data: {
-                'key': '4hL8kWTGJB1Ztv2rDVNalA',
-                'message': {
-                  'from_email': 'transactions@wingshandy.com',
-                  'to': [
-                  {
-                    'email': 'salik.adhikari@gmail.com',
-                    'name': 'Bikram Adhikari',
-                    'type': 'to'
-                  },
-                  {
-                    'email': 'toyou.dev@gmail.com',
-                    'name': 'Dev Bahadur Paudel',
-                    'type': 'to'
-                  },
-                  {
-                    'email': 'sahil@wingshandy.com',
-                    'name': 'Sahil',
-                    'type': 'to'
-                  }
+        type: "POST",
+        url: "https://mandrillapp.com/api/1.0/messages/send.json",
+        data: {
+          'key': '4hL8kWTGJB1Ztv2rDVNalA',
+          'message': {
+            'from_email': 'transactions@wingshandy.com',
+            'to': [
+            {
+              'email': 'salik.adhikari@gmail.com',
+              'name': 'Bikram Adhikari',
+              'type': 'to'
+            },
+            {
+              'email': 'toyou.dev@gmail.com',
+              'name': 'Dev Bahadur Paudel',
+              'type': 'to'
+            },
+            {
+              'email': 'sahil@wingshandy.com',
+              'name': 'Sahil',
+              'type': 'to'
+            }
             ],
-                  'autotext': 'true',
-                  'subject': 'Receipt',
-                  'html': 'Hi, The receipt for the transaction ' + returnedData.message.replace("/index.php","")
-                }
-              }
-            }).done(function(response) {
-              alert("Email Sent"); 
+            'autotext': 'true',
+            'subject': 'Receipt',
+            'html': 'Hi, The receipt for the transaction ' + returnedData.message.replace("/index.php","")
+          }
+        }
+      }).done(function(response) {
+        alert("Email Sent"); 
 
       });
       $.get("http://s250217848.online.de/api/public/index.php/article/all?token="+token, function( data ) {
@@ -244,24 +244,40 @@ function getBase64Image(img) {
         $("#selected_phones").html('');
         ARTICLES = data["article"]    
         $.each(ARTICLES, function( i, article ) {
-        if (!$("#manufacturer_select option[value='" + article["manufacturer"] + "']").length)
-          $("#manufacturer_select").append($("<option />").val(article["manufacturer"]).text(article["manufacturer"]));
+          if (!$("#manufacturer_select option[value='" + article["manufacturer"] + "']").length)
+            $("#manufacturer_select").append($("<option />").val(article["manufacturer"]).text(article["manufacturer"]));
         }); 
         populateSelectPhones(ARTICLES)
-    
+
+      });
+      $.get("http://s250217848.online.de/api/public/index.php/article/all?token="+token, function (data) {
+        $("#offer_tab").empty();
+        articles = data.article
+        for (var i = 0; i <articles.length; i++) {
+          val = "<div class='row offer-row'><div class='col-xs-12 col-sm-12'><p>"+articles[i].manufacturer+"<span>"+articles[i]["name"]+"</span><span>"+articles[i].imei+"</span></p></div></div>"
+          $("#offer_tab").append(val);
+        }
+      });
+      $.post('http://s250217848.online.de/api/public/index.php/report/all', {"type":"buy"}, 
+    function(returnedData){
+      $.get("js/page/list_item.html", function( data ) {
+        var compiled = _.template(data);
+        for (var i = returnedData.transactions.length - 1; i >= 0; i--) {
+          $("#buy-panel").append(compiled({
+          customer_name: returnedData.transactions[i].customer_name,
+          price: returnedData.transactions[i].articles[0].price,
+          article_name: returnedData.transactions[i].articles[0].article_name,
+          date: returnedData.transactions[i].transaction_date.date
+        }));
+        };
+         
+      });
 });
-$.get("http://s250217848.online.de/api/public/index.php/article/all?token="+token, function (data) {
-              $("#offer_tab").empty();
-                  articles = data.article
-                  for (var i = 0; i <articles.length; i++) {
-                      val = "<div class='row offer-row'><div class='col-xs-12 col-sm-12'><p>"+articles[i].manufacturer+"<span>"+articles[i]["name"]+"</span><span>"+articles[i].imei+"</span></p></div></div>"
-                            $("#offer_tab").append(val);
-                  }
-            }); 
+ 
     }
   }
 
-   function fail(error) {
+  function fail(error) {
     spinnerplugin.hide();
     alert("Response = " +  error.code);
   }
@@ -281,4 +297,3 @@ $.get("http://s250217848.online.de/api/public/index.php/article/all?token="+toke
     var bb = new Blob([ab], { "type": mimeString });
     return bb;
   }
-  

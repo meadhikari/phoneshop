@@ -59,7 +59,10 @@ $( document ).ready(function() {
 
 $.get("http://s250217848.online.de/api/public/index.php/customer/all?token="+token, function( data ) {
 	CUSTOMERS = data.customer
-	console.log(CUSTOMERS)
+	//console.log(CUSTOMERS)
+	}); 
+$.get("list_item.html", function( data ) {
+	console.log(data)
 	}); 
 
 $('.buyer_name').on('input',function(e){
