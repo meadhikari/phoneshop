@@ -61,6 +61,9 @@
 	         		<div class="item-overlay">
 	         			<a href="" class="item-email" data-toggle="modal" data-target="#myEmailModal">Email</a>
 	         			<a href="" class="item-print">Print</a>
+	         			<a href="" class="item-edit" data-toggle="modal" data-target="#myEditModal">Edit</a>
+	         			<a href="" class="item-view" data-toggle="modal" data-target="#myViewModal">View</a>
+	         			<a href="javascript:void(0)" class="item-close">&times;</a>
 	         		</div>
 	         	</div>
 	         	<div class="item-row">
@@ -73,6 +76,9 @@
 	         		<div class="item-overlay">
 	         			<a href="" class="item-email" data-toggle="modal" data-target="#myEmailModal">Email</a>
 	         			<a href="" class="item-print">Print</a>
+	         			<a href="" class="item-edit" data-toggle="modal" data-target="#myEditModal">Edit</a>
+	         			<a href="" class="item-view" data-toggle="modal" data-target="#myViewModal">View</a>
+	         			<a href="javascript:void(0)" class="item-close">&times;</a>
 	         		</div>
 	         	</div>
 	         	<div class="item-row">
@@ -85,6 +91,9 @@
 	         		<div class="item-overlay">
 	         			<a href="" class="item-email" data-toggle="modal" data-target="#myEmailModal">Email</a>
 	         			<a href="" class="item-print">Print</a>
+	         			<a href="" class="item-edit" data-toggle="modal" data-target="#myEditModal">Edit</a>
+	         			<a href="" class="item-view" data-toggle="modal" data-target="#myViewModal">View</a>
+	         			<a href="javascript:void(0)" class="item-close">&times;</a>
 	         		</div>
 	         	</div>
 	         	<div class="item-row">
@@ -97,6 +106,9 @@
 	         		<div class="item-overlay">
 	         			<a href="" class="item-email" data-toggle="modal" data-target="#myEmailModal">Email</a>
 	         			<a href="" class="item-print">Print</a>
+	         			<a href="" class="item-edit" data-toggle="modal" data-target="#myEditModal">Edit</a>
+	         			<a href="" class="item-view" data-toggle="modal" data-target="#myViewModal">View</a>
+	         			<a href="javascript:void(0)" class="item-close">&times;</a>
 	         		</div>
 	         	</div>
 	         	<div class="item-row">
@@ -109,6 +121,9 @@
 	         		<div class="item-overlay">
 	         			<a href="" class="item-email" data-toggle="modal" data-target="#myEmailModal">Email</a>
 	         			<a href="" class="item-print">Print</a>
+	         			<a href="" class="item-edit" data-toggle="modal" data-target="#myEditModal">Edit</a>
+	         			<a href="" class="item-view" data-toggle="modal" data-target="#myViewModal">View</a>
+	         			<a href="javascript:void(0)" class="item-close">&times;</a>
 	         		</div>
 	         	</div>
          	</div>
@@ -271,6 +286,36 @@
       <div class="modal-body">
 	        <input class="modal-email" type="text" placeholder="Email Address">
 	        <input class="app-btn" type="submit" value="Submit">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal content for Edit on item list -->
+<div class="modal fade" id="myEditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Edit</h4>
+      </div>
+      <div class="modal-body">
+	        Content for Edit
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal content for View on item list -->
+<div class="modal fade" id="myViewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">View</h4>
+      </div>
+      <div class="modal-body">
+	        Content for View
       </div>
     </div>
   </div>
@@ -505,10 +550,24 @@
 	$( document).ready(function() {
 		$('.item-content').click(function(){
 			var thisdiv = $(this);
-			$('.item-overlay').not(thisdiv.next()).hide().removeClass('isShown');
+			$('.item-overlay').hide().removeClass('isShown');
 			$('.item-content').css("-webkit-filter", "blur(0px)");
-			thisdiv.next().toggle();
-			thisdiv.next().toggleClass('isShown');
+			thisdiv.next().show();
+			thisdiv.next().addClass('isShown');
+			thisdiv.css("-webkit-filter", "blur(20px)");
+
+			if(!thisdiv.next().hasClass('isShown')){
+				thisdiv.css("-webkit-filter", "blur(0px)");
+			}
+		});
+
+		$('.item-close').click(function(){
+			var thisitem = $(this);
+			var thisdiv = thisitem.closest('div').prev();
+			$('.item-overlay').hide().removeClass('isShown');
+			$('.item-content').css("-webkit-filter", "blur(0px)");
+			// thisdiv.next().show();
+			// thisdiv.next().addClass('isShown');
 			thisdiv.css("-webkit-filter", "blur(20px)");
 
 			if(!thisdiv.next().hasClass('isShown')){

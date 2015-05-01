@@ -510,6 +510,7 @@ i.glyphicon-barcode {
 .item-overlay{
 	position: absolute;
 	top: 0;
+	width: 100%;
 	/*background: #fff;*/
 	bottom: 0;
 	/*left: 0;*/
@@ -524,24 +525,36 @@ i.glyphicon-barcode {
 .item-overlay a{
 	float: right;
 	display: inline-block;
-	/*border: 1px solid;*/
 	height: 100%;
 	vertical-align: middle;
-	padding: 25px;
+	padding: 25px 0;
 	cursor: pointer;
 	text-decoration: none;
-	/*transition: all 0.5s ease;*/
+	-webkit-transition: all 0.5s ease;
+	width: 20%;
+	text-align: center;
 }
 .item-print{
 	margin-right: -3px;
 	background: #2D8DC8;
 	color: #fff !important;
 }
+.item-view{
+	background: #24DAB7;
+	color: #fff !important;	
+}
 .item-email{
 	background: #FCFCFC;
 }
+.item.close{
+	font-size: 20px;
+  padding: 20px 0;
+}
 .item-overlay{
 	display: none;
+}
+.item-overlay a:focus{
+	outline: 0;
 }
 .modal-email{
 	padding: 8px;
