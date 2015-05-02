@@ -59,10 +59,7 @@ $( document ).ready(function() {
 
 $.get("http://s250217848.online.de/api/public/index.php/customer/all?token="+token, function( data ) {
 	CUSTOMERS = data.customer
-	//console.log(CUSTOMERS)
-	}); 
-$.get("list_item.html", function( data ) {
-	console.log(data)
+	console.log(CUSTOMERS)
 	}); 
 
 $('.buyer_name').on('input',function(e){
@@ -244,37 +241,40 @@ $( "#rsubmit" ).click(function() {
 					else
 					{
 						alert("Transaction Completed")
-						$.ajax({
-							type: "POST",
-							url: "https://mandrillapp.com/api/1.0/messages/send.json",
-							data: {
-								'key': '4hL8kWTGJB1Ztv2rDVNalA',
-								'message': {
-									'from_email': 'transactions@wingshandy.com',
-									'to': [
-									{
-										'email': 'salik.adhikari@gmail.com',
-										'name': 'Bikram Adhikari',
-										'type': 'to'
-									},
-									{
-										'email': 'toyou.dev@gmail.com',
-										'name': 'Dev Bahadur Paudel',
-										'type': 'to'
-									},
-									{
-										'email': 'sahil@wingshandy.com',
-										'name': 'Sahil',
-										'type': 'to'
-									}
-									],
-									'autotext': 'true',
-									'subject': 'Receipt',
-									'html': 'Hi, The receipt for the transaction ' + returnedData.message.replace("/index.php","")
-								}
-							}
-						}).done(function(response) {
-							alert("Email Sent"); 
+						// $.ajax({
+						// 	type: "POST",
+						// 	url: "https://mandrillapp.com/api/1.0/messages/send.json",
+						// 	data: {
+						// 		'key': '4hL8kWTGJB1Ztv2rDVNalA',
+						// 		'message': {
+						// 			'from_email': 'transactions@wingshandy.com',
+						// 			'to': [
+						// 			{
+						// 				'email': 'salik.adhikari@gmail.com',
+						// 				'name': 'Bikram Adhikari',
+						// 				'type': 'to'
+						// 			},
+						// 			{
+						// 				'email': 'toyou.dev@gmail.com',
+						// 				'name': 'Dev Bahadur Paudel',
+						// 				'type': 'to'
+						// 			},
+						// 			{
+						// 				'email': 'sahil@wingshandy.com',
+						// 				'name': 'Sahil',
+						// 				'type': 'to'
+						// 			}
+						// 			],
+						// 			'autotext': 'true',
+						// 			'subject': 'Receipt',
+						// 			'html': 'Hi, The receipt for the transaction ' + returnedData.message.replace("/index.php","")
+						// 		}
+						// 	}
+						// }).done(function(response) {
+						// 	alert("Email Sent"); 
+						// });
+						cordova.plugins.printer.print(returnedData.message.replace("/index.php",""), 'Transacton', function () {
+   							 alert('printing finished')
 						});
                         //window.location = "https://docs.google.com/viewer?url="+returnedData.message.replace("/index.php","");
                         $(':input').val('');
@@ -334,4 +334,3 @@ function populateSelectPhones(articles)
   } 
   return dd+'/'+mm+'/'+yyyy;
 }
-

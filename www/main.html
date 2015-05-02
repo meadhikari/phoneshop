@@ -189,7 +189,7 @@
       </div>
       <div class="modal-body">
 	        <input class="modal-email" type="text" placeholder="Email Address">
-	        <input class="app-btn" type="submit" value="Submit">
+	        <input class="app-btn" type="submit" value="Submit" onclick="javascript:send_email(this);">
       </div>
     </div>
   </div>
@@ -204,7 +204,34 @@
         <h4 class="modal-title" id="myModalLabel">Edit</h4>
       </div>
       <div class="modal-body">
-	        Content for Edit
+	        <div class="other_detail" >
+ <div class="form-group">         
+  <div class="form-row">
+   <label>Name:</label>
+   <input type="text" class="app-form-control other_name" placeholder="Name">
+ </div>
+ <div class="form-row">
+   <label>Price:</label>
+   <input type="text" class="app-form-control other_price" placeholder="Price">
+ </div>
+ <div class="form-row">
+   <label>Quantity:</label>
+   <input type="text" class="app-form-control other_quantity" placeholder="Quantity" value="1">
+ </div>
+ <div class="form-row">
+    <label>MwSt:(0% or 19%)</label>
+    <input type="checkbox" data-toggle="toggle" class="other_tax" placeholder="mwsp">
+  </div>
+ <div class="form-row">
+      <label>Tax:</label>
+      <input type="text" class="app-form-control tax_value" placeholder="Tax">
+</div>
+          
+</div>
+<div class="button-area">
+		     <input type="submit" value="SUBMIT">
+		   </div>
+</div>
       </div>
     </div>
   </div>
@@ -356,10 +383,7 @@
 			</div>
 			</div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      
     </div>
   </div>
 </div>
@@ -376,6 +400,7 @@
 }*/
 
   var token = localStorage.getItem("token") //getUrlVars()["token"];
+  var CURRENT_PDF_URL;
 ;
 </script>
 <script type="text/javascript" src="cordova.js"></script>
@@ -452,9 +477,11 @@
 </script>
 
 <script type="text/javascript">
+
 function list_listener () {
 	$('.item-content').click(function(){
-			var thisdiv = $(this);
+			thisdiv = $(this);
+			CURRENT_PDF_URL = thisdiv[0].getElementsByTagName("div")[0].innerHTML
 			$('.item-overlay').hide().removeClass('isShown');
 			$('.item-content').css("-webkit-filter", "blur(0px)");
 			thisdiv.next().show();
@@ -490,7 +517,8 @@ $.post('http://s250217848.online.de/api/public/index.php/report/all', {"type":"b
 					customer_name: returnedData.transactions[i].customer_name,
 					price: returnedData.transactions[i].articles[0].price,
 					article_name: returnedData.transactions[i].articles[0].article_name,
-					date: returnedData.transactions[i].transaction_date.date
+					date: returnedData.transactions[i].transaction_date.date,
+					pdf: returnedData.transactions[i].pdf
 				}));
 				};
 				list_listener()
@@ -506,14 +534,48 @@ $.post('http://s250217848.online.de/api/public/index.php/report/all', {"type":"b
 					customer_name: returnedData.transactions[i].customer_name,
 					price: returnedData.transactions[i].articles[0].price,
 					article_name: returnedData.transactions[i].articles[0].article_name,
-					date: returnedData.transactions[i].transaction_date.date
+					date: returnedData.transactions[i].transaction_date.date,
+					pdf: returnedData.transactions[i].pdf
 				}));
 				};
 			list_listener()	 
 		});
 	});
 
-	
+	function print (url) {
+		cordova.plugins.printer.print(url, 'Transacton', function () {
+                 alert('printing finished')
+        });
+	}
+
+	function send_email (div) {
+	   address = $(div).prev().val() 
+	   $.ajax({
+             type: "POST",
+             url: "https://mandrillapp.com/api/1.0/messages/send.json",
+             data: {
+                 'key': '4hL8kWTGJB1Ztv2rDVNalA',
+                 'message': {
+                   'from_email': 'transactions@wingshandy.com',
+                   'to': [
+                     {
+                     'email': address,
+                     'name': 'Recipent',
+                     'type': 'to'
+                   }
+             ],
+                   'autotext': 'true',
+                   'subject': 'Receipt',
+                   'html': 'Hi, The receipt for the transaction ' + CURRENT_PDF_URL
+                 }
+               }
+             }).done(function(response) {
+               alert("Email Sent"); 
+               $('.modal').modal('hide');
+
+
+      });
+	}
 
 </script>
 
