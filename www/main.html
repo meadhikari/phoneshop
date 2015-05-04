@@ -205,34 +205,33 @@
       </div>
       <div class="modal-body">
 	        <div class="other_detail" >
- <div class="form-group">         
-  <div class="form-row">
-   <label>Name:</label>
-   <input type="text" class="app-form-control other_name" placeholder="Name">
- </div>
- <div class="form-row">
-   <label>Price:</label>
-   <input type="text" class="app-form-control other_price" placeholder="Price">
- </div>
- <div class="form-row">
-   <label>Quantity:</label>
-   <input type="text" class="app-form-control other_quantity" placeholder="Quantity" value="1">
- </div>
- <div class="form-row">
-    <label>MwSt:(0% or 19%)</label>
-    <input type="checkbox" data-toggle="toggle" class="other_tax" placeholder="mwsp">
-  </div>
- <div class="form-row">
-      <label>Tax:</label>
-      <input type="text" class="app-form-control tax_value" placeholder="Tax">
-</div>
-          
-</div>
-<div class="button-area">
-		     <input type="submit" value="SUBMIT">
-		   </div>
-</div>
-      </div>
+ 				<div class="form-group">         
+  					<div class="form-row">
+   						<label>Name:</label>
+   						<input type="text" class="app-form-control other_name" placeholder="Name">
+ 					</div>
+ 					<div class="form-row">
+   						<label>Price:</label>
+   						<input type="text" class="app-form-control other_price" placeholder="Price">
+ 					</div>
+ 					<div class="form-row">
+   						<label>Quantity:</label>
+   						<input type="text" class="app-form-control other_quantity" placeholder="Quantity" value="1">
+ 					</div>
+ 					<div class="form-row">
+    					<label>MwSt:(0% or 19%)</label>
+    					<input type="checkbox" data-toggle="toggle" class="other_tax" placeholder="mwsp">
+  					</div>
+ 					<div class="form-row">
+      					<label>Tax:</label>
+      					<input type="text" class="app-form-control tax_value" placeholder="Tax">
+      				</div>
+      				<div class="button-area">
+						<input type="submit" value="SUBMIT" onclick="javascript:edit_transaction(this);">
+					</div>	
+            	</div>
+			</div>
+    </div>
     </div>
   </div>
 </div>
@@ -401,6 +400,8 @@
 
   var token = localStorage.getItem("token") //getUrlVars()["token"];
   var CURRENT_PDF_URL;
+  var CURRENT_TRANSACTION_ID;
+  var thediv;
 ;
 </script>
 <script type="text/javascript" src="cordova.js"></script>
@@ -482,6 +483,8 @@ function list_listener () {
 	$('.item-content').click(function(){
 			thisdiv = $(this);
 			CURRENT_PDF_URL = thisdiv[0].getElementsByTagName("div")[0].innerHTML
+			CURRENT_TRANSACTION_ID = thisdiv[0].getElementsByTagName("div")[1].innerHTML
+			console.log(CURRENT_TRANSACTION_ID)
 			$('.item-overlay').hide().removeClass('isShown');
 			$('.item-content').css("-webkit-filter", "blur(0px)");
 			thisdiv.next().show();
@@ -518,7 +521,8 @@ $.post('http://s250217848.online.de/api/public/index.php/report/all', {"type":"b
 					price: returnedData.transactions[i].articles[0].price,
 					article_name: returnedData.transactions[i].articles[0].article_name,
 					date: returnedData.transactions[i].transaction_date.date,
-					pdf: returnedData.transactions[i].pdf
+					pdf: returnedData.transactions[i].pdf,
+					transaction_id: returnedData.transactions[i].transaction_id
 				}));
 				};
 				list_listener()
@@ -535,7 +539,8 @@ $.post('http://s250217848.online.de/api/public/index.php/report/all', {"type":"b
 					price: returnedData.transactions[i].articles[0].price,
 					article_name: returnedData.transactions[i].articles[0].article_name,
 					date: returnedData.transactions[i].transaction_date.date,
-					pdf: returnedData.transactions[i].pdf
+					pdf: returnedData.transactions[i].pdf,
+					transaction_id: returnedData.transactions[i].transaction_id
 				}));
 				};
 			list_listener()	 
@@ -575,6 +580,32 @@ $.post('http://s250217848.online.de/api/public/index.php/report/all', {"type":"b
 
 
       });
+	}
+	function edit_transaction (submit_button) {
+		button = $(submit_button)
+		name = $(button[0].parentNode).siblings()[0].getElementsByTagName("input")[0].value
+		price = $(button[0].parentNode).siblings()[1].getElementsByTagName("input")[0].value
+		quantity = $(button[0].parentNode).siblings()[2].getElementsByTagName("input")[0].value
+		mwst = $(button[0].parentNode).siblings()[3].getElementsByTagName("input")[0].value
+		tax = $(button[0].parentNode).siblings()[4].getElementsByTagName("input")[0].value
+		data = {"id":CURRENT_TRANSACTION_ID,"others": [{"name": name,"price": price,"qty": quantity,"tax": mwst,"tax_value": tax}]}
+		$.post('http://s250217848.online.de/api/public/index.php/transaction/update', data, 
+		function(returnedData){
+			if (returnedData.statusCode === 200)
+			{
+				alert("Transaction Updated Succesfully")
+				$('.modal').modal('hide');
+				location.reload()
+
+			}
+			else
+			{
+				alert("There was an error please try again")
+
+			}
+			
+		});
+
 	}
 
 </script>
