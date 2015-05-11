@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Receipt PDF File</title>
+	<style type="text/css">
+	#viewmodel{
+		padding:20px;
+	}
+	h1{
+		text-align: center;
+	}
+	label{
+		font-weight: bold;
+		display: block;
+	}
+	span{		
+		padding-left: 10px;
+	}
+	.signature-image{
+		display: block;
+	}
+	th{
+		text-align: left;
+	}
+	tfoot th:first-child{
+		text-align: right;
+		padding-right: 10px;
+	}
+	.report-table{
+		border-bottom: 4px solid;
+		margin-bottom: 20px;
+	}
+	.article-wrap{
+		padding: 0!important;
+	}
+	.article-table td,
+	.article-table th{
+		padding-left: 10px;
+	}
+	.user-image{
+		display: block;
+		width: 100px !important;		
+		margin: 10px 0;
+	}
+	.desc{
+		padding: 20px 0;
+	}
+	.desc label{
+		margin-bottom: 10px;
+		display: inline-block;
+		width: 200px;
+	}
+	.between{
+	transaction  display: block;
+	}
+	</style>
+</head>
+<body>
+	<h1>Kaufvertrag</h1><br>
+	<p style="text-align: center;" class="between">Zwischen</p>
+	<table width="100%" border="0" cellspacing="0" cellpadding="10">
+		<tr>
+			<td width="60%" style="border: 1px solid #000;">
+			<label>'Verkäufer:'</label>
+				<table  width="100%" border="0" cellspacing="0" cellpadding="10">
+					<tr>
+						<td width="50%"><img src="<%= transaction.signature %>" class="user-image"></td>
+					</tr>
+				</table>
+				<label>Notes:</label>
+				<p></p>
+			</td>
+			<td width="10%" align="center">UND</td>
+			<td width="30%" style="border: 1px solid;">
+				<label>Käufer:</label>
+				<p>Wings Handy München</p>
+				<p>Bahnhofsplatz. 2</p>
+				<p>80335 München</p>
+			</td>
+		</tr>
+	</table>
+
+<div class="desc">
+	<h2 style="font-size:18px;">Über folgendes gebrauchtes Gerät:</h2>
+	<p><label>Hersteller &amp; Modell:</label> <%= transaction.manufacturer_model %></p>
+	<p><label>IMEI No.:</label> <%= transaction.imei %></p>
+	<p><label>Preis:</label> <%= transaction.price %></p>
+	<p><label>Mwst:</label> <%= transaction.tax %></p>
+</div>
+
+<div class="">
+	<p>'Der Verkäufer erklärt, dass das genannte Gerät alleiniges Eigentum, frei von Rechten Dritter ist und nicht als gestohlen gemeldet ist oder wird. Er sichert die volle Funktionstüchtigkeit zu, wie sie für dieses Gerät bei bestimmungsgemäßen Gebrauch üblich ist. Diesbezüglich mündliche Erklärungen bzw. Absprachen sind kein Teil dieses Kaufvertrages. Funktionsein-schränkungen, insbesondere Schäden, sind oben bei Besonderheiten aufzuführen </p>
+	<p>Sollten einzelne Punkte dieses Vertrages aufgrund eines Gesetzes oder einer Verordnung rechtswidrig sein oder werden, so verlieren diese Punkte ihre Rechtskraft bezüglich dieses Vertrages ohne dass die Rechtskraft dieses Vertrages berührt wird. Die entsprechenden Punkte sind dann ihrem Sinne nach von den Vertragsparteien zu erfüllen.'</p>
+</div>
+
+<div class="footer">
+	<p>'Verkäufer - Betrag dankend erhalten:'<span style="float:right;"> Käufer, <%= transaction.login_name %></span></p>
+	<p style="margin-top: 30px;"><label>München, <%= transaction.login_name %> <img src="<%= transaction.signature %>" style="  height: 100px;"></label></p>
+</div>
+</body>
+</html>

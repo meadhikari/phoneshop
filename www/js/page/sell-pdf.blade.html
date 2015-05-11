@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cash Sell</title>
+	<style type="text/css">
+	html,body{
+		/*background-color: #F2F2F2;*/
+		color: #4C4C4C;
+		font-family: arial;
+		font-size: 15px;
+		position: relative;
+		height: 100%;
+		/*padding-bottom: 100px;*/
+	}
+	body{
+		/*padding:20px;*/
+	}
+	* {
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-o-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	.page-footer{
+		position: absolute;
+    	bottom: 0;
+    	width: 100%;
+    	border-top: 1px solid;
+	}
+	/*@page:last {
+	    @bottom-center {
+	        content: "…";
+	    }
+	}*/
+	h1{
+		text-align: center;
+	}
+	h4{
+		margin: 0;
+	}
+	label{
+		font-weight: bold;
+		display: block;
+	}
+	span{
+		padding-left: 10px;
+	}
+	.signature-image{
+		display: block;
+	}
+	th{
+		text-align: left;
+	}
+	tfoot th:first-child{
+		text-align: right;
+		padding-right: 10px;
+	}
+	.report-table{
+		border-bottom: 4px solid;
+		margin-bottom: 20px;
+	}
+	.article-wrap{
+		padding: 0!important;
+	}
+	.article-table td,
+	.article-table th{
+		padding-left: 10px;
+	}
+	.user-image{
+		display: block;
+		width: 30%;
+		margin: 10px 0;
+	}
+	.desc{
+		padding: 20px 0;
+	}
+	.desc label{
+		margin-bottom: 10px;
+		display: inline-block;
+		width: 200px;
+	}
+	.table-bordered{
+		  /*border: 1px solid;*/
+	}
+	.table-striped th,
+	.table-striped td{
+		border-bottom: 1px solid;
+	}
+	.table-striped{
+		margin-top: 20px;
+	}
+	.table-footer td{
+		  border-bottom: 4px double;
+	}
+	.table-footer td:last-child{
+		border-bottom: 2px solid #000;
+	}
+	.page-header{
+		border-bottom: 1px solid;
+		  margin-top: 26px;
+  		padding: 10px 0;
+	}
+	</style>
+</head>
+<body>
+<div class="page-header">
+	Wings Handy München &nbsp; &nbsp; Bahnhofplatz 2 &nbsp; &nbsp; 80335 München
+</div>
+	<!-- <p><b>Barverkauf</b></p> -->
+	<!-- <div class="customer-details">
+		<h4>Customer Details</h4>
+	</div> -->
+	<table width="100%" cellpadding="5" cellspacing="0">
+		<tr>
+			<td width="50%" height="200px">
+				<!-- <h4>Customer Details</h4> -->
+				<span><%= transaction.customer_name %></span><br>
+				<span><%= transaction.customer_address %></span><br>
+				<span><%= transaction.customer_email %></span><br>
+				<span><%= transaction.customer_phone %></span><br>
+			</td>
+			<td width="50%" height="200px">
+				<!-- <h3>Rechnung</h3> -->
+				<table class="table-bordered" width="100%" cellpadding="5" cellspacing="0">
+					<!-- <tr>
+						<td colspan="2"><b>Differenzbesteuerung nach §25 UStG</b></td>
+					</tr> -->
+					<tr>
+						<td>Datum</td>
+						<td><%= transaction.transaction_date.date %></td>
+					</tr>
+					<tr>
+						<td>Rechnungsnummer</td>
+						<td><%= transaction.invoice_number %></td>
+					</tr>
+					<tr>
+						<td>USt-ID</td>
+						<td>DE 259394180</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<p>Die Ware bleibt bis zur vollständigen Bezahlung unser Eigentum.</p>
+	<table width="100%" class="table-striped" cellpadding="5" cellspacing="0">
+		<tr>
+			<th>Beschreibung</th>
+			<th>Menge</th>
+			<th>Preis <b>(&euro;)</b></th>
+			<th>Betrag <b>(&euro;)</b></th>
+		</tr>
+		<% total = 0 %>
+
+		<% _(transaction['purchasesales']).each(function(item) { %>
+		<tr>			
+			<td><%= item.articles.name %></td>
+			<td><%= item.qty %></td>
+			<td><% price = item.price + item.tax %> <%= price %> &euro;</td>
+			<td><%= price * item.qty %> &euro;</td>
+			<% total +=  price * item.qty %>
+		</tr>
+    	<% }) %>
+		<tr>
+			<td colspan="3" style="border: 0px;"><b>Gesamtbetrag</b></td>
+			<td style="border: 0px;"><b><%= total %> &euro;</b></td>
+		</tr>
+	</table>
+
+<div class="page-footer">
+	<table width="100%" cellpadding="5" cellspacing="1">
+		<tr>
+			<td width="50%" >
+				Wings Handy München <br />
+				Bahnhofplatz 2 <br />
+				80335 München
+			</td>
+			<td  width="50%" align="right" style="padding-right: 35px;">
+				Tel: 089 / 53 88 99 34 <br />
+				Fax: 089 / 53 88 96 26 <br />
+				E-Mail: info@wingshandy.com
+			</td>
+		</tr>
+	</table>
+</div>
+	
+
+</body>
+</html>
